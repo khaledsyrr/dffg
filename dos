@@ -1,7 +1,4 @@
 
-              
-
-
 
 
 
@@ -14,7 +11,7 @@ $(document).ready(function() {
         $(this).val(text.replace(/vt\.tiktok\.com/g, 'vm.tiktok.com'));
     });
 
-    // ذئاب  هوست - تعديل النص عند الإرسال
+    // ذئاب هوست - تعديل النص عند الإرسال
     $(document).on('click', '.fa-send', function() {
         $('.tbox').each(function() {
             let text = $(this).val();
@@ -35,6 +32,47 @@ $(document).ready(function() {
 
 
 
+$(document).ready(function() {
+    
+    $('head').append('<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&display=swap" rel="stylesheet">');
+    
+    
+    $('body, div[style*="display: inline-block;direction: rtl;"], button, #u1, #u2, #u3, #pass1, #pass2').css('font-family', 'Aref Ruqaa, sans-serif');
+    $('i, .fa, [class*="fa-"]').css('font-family', 'FontAwesome, sans-serif');
+});
+
+
+
+
+
+
+
+
+
+
+$('<link rel="stylesheet" type="text/css" href="">\n<link rel="stylesheet" href="">\n<style>\n\n#wall .fitimg.u-pic.borderg {\nheight: 52px !important;\nborder: 1px solid;\nborder-radius: 100px ;\nbox-shadow: 0 0 0px rgb(0, 0, 0), inset 0 0 4px rgb(0, 0, 0), 0 0 0 0px #707070;\nmargin-top: 2px;\nmargin-right: 2px;\n}\n\n#chats .fitimg.u-pic {\nheight: 52px !important;\nborder: 1px solid;\nborder-radius: 100px ;\nbox-shadow: 0 0 0px rgb(0, 0, 0), inset 0 0 4px rgb(0, 0, 0), 0 0 0 0px #707070;\nmargin-left: -10px;\n}\n\n#chats img.ustat {\n    width: 11px !important;\n    height: 11px !important;\n    min-height: 0%!important;\n    margin-right: 0;\n\n    z-index: 999999;\n    border-radius: 50px;\n    margin-left: 1px;\n    margin-top: 1px;\n    border: 1px solid #000;\n    box-shadow: inset 0 0 0 rgb(0 0 0 / 8%), 0 0 2px #f0c01f;\nbox-shadow: 0 0 3px rgb(0, 0, 0), inset 0 0 4px rgb(0, 0, 0), 0 0 0 0px #000;\n      \n    }\n\n#chats .d-flex.fl{background-color:#d4cfd2!important;background-image: url(https://file.up6.cc/2023/02/167554621472521.png);\n  background-size: cover;}\n\n\n#chats .mini.u-msg.dots{color:#000!important;}\n\n\n\n#chats{background-color:#d4cfd2!important;background-image: url(https://file.up6.cc/2023/02/167554753102281.png);\n  background-size: cover;}\n\n\n</style>').insertBefore("body");
+
+
+$(`<link rel="stylesheet" type="text/css" href="">
+<link rel="stylesheet" href="">
+<style>
+
+
+span.flex-grow-1.dots {text-align: center;}
+.dots {white-space: normal!important;}
+span.btn.fr.fa.fa-eye {transform: matrix(1,0,0,1,-40,-3);}
+.fa.fa-user.label.badgex.label-success {transform: matrix(1,0,0,1,-55,0);}
+
+
+
+.sharit{
+background-image: url("https://www.raed.net/img?id=977192");
+background-size: 100%!important;
+border-radius: 20;
+border-bottom:2px solid;margin-bottom:2px;border-top:2px solid;margin-top:2px;border-color:#bababa!important;
+}
+
+</style>`).insertBefore('body')
 
 
 
@@ -48,6 +86,16 @@ $(document).ready(function() {
 
 
 
+
+
+
+
+$('.u-msg').each(function() {
+    $(this).css({
+        'max-height': 'none',
+        'height': 'auto'
+    });
+});
 
 
 
@@ -74,6 +122,7 @@ $(document).ready(function() {
 
 
     
+
 
 
 
@@ -166,8 +215,31 @@ $(document).ready(function () {
         $(this).addClass('btn-paper btn-warm-' + index);
     });
 });
-</script>
 
+
+
+
+
+
+$("<style>\
+@keyframes sparkle {\
+    0% { background-position: 0% 50%; }\
+    50% { background-position: 100% 50%; }\
+    100% { background-position: 0% 50%; }\
+}\
+.label.uc.fa.fa-microphone.label-danger, \
+.label.label-primary.fa.fa-user.uc {\
+    background-color: transparent !important;\
+    color: transparent !important;\
+    font-weight: bold;\
+    background-image: linear-gradient(90deg, #22516C, #00FFFF, #FFD700, #22516C);\
+    background-size: 400% 400%;\
+    -webkit-background-clip: text;\
+    animation: sparkle 3s ease-in-out infinite;\
+    border: none !important;\
+    font-size: 16px !important;\
+}\
+</style>").appendTo("head");
 
 
 
