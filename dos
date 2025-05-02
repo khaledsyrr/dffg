@@ -113,7 +113,7 @@ $(document).ready(function() {
 </style>
 
 <!-- JavaScript -->
-<script>
+
 $(document).ready(function () {
     let isDesktopMode = false;
 
