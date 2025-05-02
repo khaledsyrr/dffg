@@ -77,12 +77,12 @@ $(document).ready(function() {
 
 
 
-
-<!-- jQuery -->
+<!-- jQuery (إذا لم يكن موجوداً) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- CSS: تصميم الورقة + ألوان مختلفة -->
+<!-- CSS: تصميم الورقة + ألوان دافئة -->
 <style>
+/* تصميم موحّد بشكل ورقة */
 .btn-paper {
     padding: 10px;
     width: 98%;
@@ -98,30 +98,48 @@ $(document).ready(function() {
     border: none;
     display: block;
 }
+
 .btn-paper:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* ألوان دافئة مختلفة */
-.btn-warm-0 { background: linear-gradient(145deg, #FFDAB9, #FFC1A1); color: #333 !important; }
-.btn-warm-1 { background: linear-gradient(145deg, #FAD0C4, #FFD1FF); color: #333 !important; }
-.btn-warm-2 { background: linear-gradient(145deg, #FFF1CC, #FFD699); color: #333 !important; }
-.btn-warm-3 { background: linear-gradient(145deg, #FFEBB7, #FFCA8B); color: #333 !important; }
-.btn-warm-4 { background: linear-gradient(145deg, #FEEBCB, #FFD3A5); color: #333 !important; }
-.btn-warm-5 { background: linear-gradient(145deg, #d35400, #a84300); color: white !important; }
+/* ألوان مختلفة ودافئة لكل زر */
+.btn-warm-0 {
+    background: linear-gradient(145deg, #FFDAB9, #FFC1A1); /* خوخي */
+    color: #333 !important;
+}
+.btn-warm-1 {
+    background: linear-gradient(145deg, #FAD0C4, #FFD1FF); /* وردي */
+    color: #333 !important;
+}
+.btn-warm-2 {
+    background: linear-gradient(145deg, #FFF1CC, #FFD699); /* مشمشي */
+    color: #333 !important;
+}
+.btn-warm-3 {
+    background: linear-gradient(145deg, #FFEBB7, #FFCA8B); /* عسلي */
+    color: #333 !important;
+}
+.btn-warm-4 {
+    background: linear-gradient(145deg, #FEEBCB, #FFD3A5); /* بيج وردي */
+    color: #333 !important;
+}
+.btn-warm-5 {
+    background: linear-gradient(145deg, #d35400, #a84300); /* برتقالي فاخر */
+    color: white !important;
+}
 </style>
 
-<!-- JavaScript -->
-
+<!-- JavaScript لتطبيق التصميم على كل الأزرار -->
+<script>
 $(document).ready(function () {
     let isDesktopMode = false;
 
-    // إضافة زر الورقة: "عرض سطح المكتب"
+    // زر الورقة: عرض سطح المكتب
     const newButton = $('<label></label>')
         .html('<span class="fl fa fa-desktop" style="margin-right: 6px;"></span>عرض سطح المكتب')
-        .addClass('label fl btn-paper btn-warm-5')
-        .attr('id', 'desktop-mode-btn')
+        .addClass('label fl btn-paper btn-warm-5') // نفس التنسيق الورقي واللون السادس
         .click(function () {
             if (isDesktopMode) {
                 $('meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1.0');
@@ -136,22 +154,19 @@ $(document).ready(function () {
             }
         });
 
-    // إضافة الزر
+    // إضافته داخل القسم المطلوب
     $('#newoption .not_geri').append(newButton);
 
-    // التقاط كل العناصر (label, button, a, div...) داخل #newoption .not_geri ماعدا زرنا
-    const allItems = $('#newoption .not_geri').children().not('#desktop-mode-btn');
-    
-    // تطبيق التنسيقات على أول 5 عناصر فقط
-    allItems.each(function(index) {
-        if (index < 5) {
-            $(this).addClass('btn-paper btn-warm-' + index);
-        }
+    // تطبيق التصميم الورقي والألوان على الأزرار الخمسة السابقة
+    const allButtons = $('#newoption .not_geri label');
+    const lastButton = allButtons.last();
+
+    // لكل زر قبل الزر الأخير، نطبّق التنسيق
+    allButtons.not(lastButton).each(function(index) {
+        $(this).addClass('btn-paper btn-warm-' + index);
     });
 });
-
-
-
+</script>
 
 
 
