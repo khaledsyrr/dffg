@@ -1,4 +1,4 @@
-
+// سكربت شات مدى - نسخة مطورة
 (function() {
   // تأكد من وجود jQuery
   if (typeof jQuery === 'undefined') {
@@ -11,25 +11,41 @@
     // تعديل خطوط الموقع
     $(".primaryborder").css({
       "font-family": "Ruqaa, FontAwesome",
-      "font-size": "16px"
+      "font-size": "14px"
     });
     
     $("body, [style*='font-family:-apple-system;'], div, #d2, #pass1, #pass2, #u1, #u2, #u3").css({
       "font-family": "Ruqaa, sans-serif",
-      "font-size": "16px"
+      "font-size": "14px"
     });
     
+    // إضافة هيدر للموقع
+    $('<div class="mada-header">\
+        <div>\
+            <div style="background-image: linear-gradient(to right, #f0f0f0, #ffffff, #f0f0f0); color: #003300; border-radius: 15px; border-bottom: 2px solid #ffffff; border-top: 2px solid #ffffff; padding: 8px 0; margin: 5px 0; width: 100%;">\
+                <span style="background-color: #f0f0f0; border-radius: 10px; font-family: \'Ruqaa\', FontAwesome; margin: 5px 10px; padding: 8px 12px; font-size: 16px; font-weight: bold; display: inline-block;">\
+                    شات مـدى للجوال \
+                </span>\
+            </div>\
+        </div>\
+    </div>').insertBefore('div#tlogins');
     
+    // إضافة مربع رسائل ترحيبي
+    $(".primaryborder").before('<div class="welcome-message">\
+      <marquee direction="right" width="100%" id="nl" onmouseover="this.stop()" onmouseout="this.start()"\
+      style="font-family: \'Ruqaa\', sans-serif; margin: 5px 0; height: 25px; padding: 4px; background-color: #f8f8f8; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);" scrolldelay="1" scrollamount="3">\
+      أهلا وسهلا .. بكم في شاتكم : [ شــات مــدى ] ، مايكات ، مسابقات ، فعاليات ، جوائز - نتمنى لكم قضاء أمتع\
+      الأوقات | الإدارة ..\
+      </marquee>\
+    </div>');
     
+    // إضافة زر للتحكم بصوت المايكات - تم تصغير الحجم
+    $('<span class="fa fa-microphone control-button" style="font-family: FontAwesome, sans-serif; font-size: 14px; margin: 0 3px; padding: 3px; cursor: pointer;"></span>').insertBefore('.nav-tabs');
     
-    
-    // إضافة زر للتحكم بصوت المايكات - تم تكبير الحجم
-    $('<span class="fa fa-microphone control-button" style="font-family: FontAwesome, sans-serif; font-size: 18px; margin: 0 5px; padding: 5px; cursor: pointer;"></span>').insertBefore('.nav-tabs');
-    
-    // إضافة زر للتحكم بالمايكات - تم تكبير الحجم
-    $('<div class="mic-control" style="display: flex; align-items: center; margin: 10px 0; padding: 8px; background-color: #f0f0f0; border-radius: 10px;">\
-      <span class="fa fa-microphone-slash" style="font-family: FontAwesome, sans-serif; font-size: 18px; margin-right: 8px;"></span>\
-      <span style="font-size: 16px;">التحكم بصوت مايكات الغرفة</span>\
+    // إضافة زر للتحكم بالمايكات - تم تصغير الحجم
+    $('<div class="mic-control" style="display: flex; align-items: center; margin: 6px 0; padding: 5px; background-color: #f0f0f0; border-radius: 8px;">\
+      <span class="fa fa-microphone-slash" style="font-family: FontAwesome, sans-serif; font-size: 14px; margin-right: 5px;"></span>\
+      <span style="font-size: 14px;">التحكم بصوت مايكات الغرفة</span>\
     </div>').insertBefore('img.co.u-pic[src="sico/z1d9cqu9vt10.png"]');
     
     // إضافة ستايل للخطوط - تم تحسين التأثير
@@ -42,15 +58,15 @@
       .fa.fa-user.label.label-primary.fa-user-plus, .fa.fa-user.label.label-primary {\
         color: transparent !important;\
         background-color: transparent !important;\
-        font-size: 16px !important;\
+        font-size: 14px !important;\
         background-image: linear-gradient(90deg, #007bff, #00FFFF, #FFD700, #007bff);\
         background-size: 300% 100%;\
         -webkit-background-clip: text;\
         animation: sparkle 4s ease-in-out infinite;\
         border: 0px !important;\
         font-family: jazeera !important;\
-        padding: 8px 12px !important;\
-        margin: 5px !important;\
+        padding: 5px 8px !important;\
+        margin: 3px !important;\
         display: inline-block !important;\
       }\
     </style>').appendTo('head');
@@ -64,8 +80,8 @@
       }\
       .u-msg.emoi.uzr.fl.spanable:not([style*="color:rgb"]) {\
         color: transparent !important;\
-        margin: 5px !important;\
-        font-size: 16px !important;\
+        margin: 3px !important;\
+        font-size: 14px !important;\
         font-weight: bold !important;\
         letter-spacing: 1px;\
         text-transform: uppercase;\
@@ -73,8 +89,8 @@
         background-size: 300% 100%;\
         -webkit-background-clip: text;\
         animation: messageSparkle 4s ease-in-out infinite;\
-        padding: 5px !important;\
-        border-radius: 8px !important;\
+        padding: 3px !important;\
+        border-radius: 6px !important;\
       }\
     </style>').appendTo('body');
     
@@ -89,28 +105,29 @@
     updateImages();
     setInterval(updateImages, 2000);
     
-    // إضافة زر لتغيير نمط العرض - تم تكبير الحجم وتحسين المظهر
+    // إضافة زر لتغيير نمط العرض - تم تصغير الحجم وتحسين المظهر
     let isDesktopView = false;
     let viewButton = $("<button>عرض الهاتف</button>").addClass("btn border view-toggle-btn").css({
       "background-color": "#f0f0f0",
       "color": "#333",
-      "padding": "10px 15px",
-      "margin": "8px",
-      "width": "45%",
-      "font-size": "16px",
-      "border-radius": "10px",
-      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
-      "transition": "all 0.3s ease"
-    }).append('<span class="fa fa-mobile" style="margin-right: 5px; font-size: 18px;"></span>').click(function() {
+      "padding": "5px 8px",
+      "margin": "4px",
+      "width": "30%",
+      "font-size": "12px",
+      "border-radius": "6px",
+      "box-shadow": "0 1px 3px rgba(0,0,0,0.1)",
+      "transition": "all 0.3s ease",
+      "display": "inline-block"
+    }).append('<span class="fa fa-mobile" style="margin-right: 3px; font-size: 12px;"></span>').click(function() {
       if (isDesktopView) {
         $('meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1.0');
-        $(this).html("عرض الهاتف").append('<span class="fa fa-mobile" style="margin-right: 5px; font-size: 18px;"></span>');
+        $(this).html("عرض الهاتف").append('<span class="fa fa-mobile" style="margin-right: 3px; font-size: 12px;"></span>');
         $(this).css("background-color", "#f0f0f0");
         isDesktopView = false;
         alert("تم العودة إلى الوضع الطبيعي");
       } else {
         $('meta[name="viewport"]').attr('content', 'width=1024');
-        $(this).html("عرض سطح المكتب").append('<span class="fa fa-desktop" style="margin-right: 5px; font-size: 18px;"></span>');
+        $(this).html("عرض سطح المكتب").append('<span class="fa fa-desktop" style="margin-right: 3px; font-size: 12px;"></span>');
         $(this).css("background-color", "#e0e0e0");
         isDesktopView = true;
         alert("تم تحويل العرض إلى وضع الكمبيوتر");
@@ -123,8 +140,6 @@
       function() { $(this).css("background-color", isDesktopView ? "#e0e0e0" : "#f0f0f0"); }
     );
     
-    $(".primaryborder").append(viewButton);
-    
     // إضافة تأثير عند النقر على العناصر - تم تحسين التأثير
     $(document).on('click', 'button', function(e) {
       // إضافة تأثير نقطة عند النقر
@@ -136,10 +151,10 @@
       let relativeY = e.pageY - offset.top;
       
       ripple.css({
-        'top': relativeY - 10 + 'px',
-        'left': relativeX - 10 + 'px',
+        'top': relativeY - 8 + 'px',
+        'left': relativeX - 8 + 'px',
         'position': 'absolute',
-        'font-size': '20px',
+        'font-size': '16px',
         'color': '#ff6b6b'
       });
       
@@ -152,67 +167,68 @@
       }, 800);
     });
     
-    // تعديل نص الأزرار وتكبير حجمها
+    // تعديل نص الأزرار وتصغير حجمها
     $("button.btn.btn-primary").html("دخول").css({
-      "font-size": "18px",
-      "padding": "10px 20px",
-      "margin": "8px",
-      "border-radius": "10px"
+      "font-size": "14px",
+      "padding": "6px 12px",
+      "margin": "4px",
+      "border-radius": "6px"
     });
     
-    // تعديل أيقونات الأزرار وتكبير حجمها
+    // تعديل أيقونات الأزرار وتصغير حجمها
     $('button.fa.fa-send.fl.btn.btn-primary').html(function(a, b) {
-      return '<span style="font-family: \'Ruqaa\', FontAwesome; font-size: 16px;">' + $(this).html() + '</span>';
+      return '<span style="font-family: \'Ruqaa\', FontAwesome; font-size: 14px;">' + $(this).html() + '</span>';
     }).css({
-      "padding": "10px 15px",
-      "margin": "5px",
-      "border-radius": "10px"
+      "padding": "6px 10px",
+      "margin": "3px",
+      "border-radius": "6px"
     });
     
     // تعديل أزرار الإرسال
     $('.fa.fa-send.fl.fa-mute-mic').html(function(a, b) {
-      return '<span style="font-family: \'Ruqaa\', FontAwesome; font-size: 16px;">' + $(this).html() + '</span>';
+      return '<span style="font-family: \'Ruqaa\', FontAwesome; font-size: 14px;">' + $(this).html() + '</span>';
     }).css({
-      "padding": "8px 12px",
-      "margin": "5px",
-      "border-radius": "8px"
+      "padding": "5px 8px",
+      "margin": "3px",
+      "border-radius": "6px"
     });
     
     $('.fa.fa-send.fl.fa-mute-mic').each(function() {
       let a = $(this).html();
-      $(this).html('<span style="font-family: \'Ruqaa\', FontAwesome; font-size: 16px;">' + a + '</span>');
+      $(this).html('<span style="font-family: \'Ruqaa\', FontAwesome; font-size: 14px;">' + a + '</span>');
     });
     
-    // تعديل خط الرسائل وتكبير حجمها
+    // تعديل خط الرسائل وتصغير حجمها
     $(".u-msg.break.fl").css({
       "font-family": "Ruqaa, FontAwesome",
-      "font-size": "16px",
-      "padding": "8px",
-      "margin": "5px",
-      "border-radius": "8px"
+      "font-size": "14px",
+      "padding": "5px",
+      "margin": "3px",
+      "border-radius": "6px"
     });
     
-    // إضافة أزرار للتحكم بالخطوط والمظهر - تم تكبير الحجم وتحسين المظهر
+    // إضافة أزرار للتحكم بالخطوط والمظهر - تم تصغير الحجم وتحسين المظهر
     let isEmojisHidden = false;
     let fontButton = $("<button>إخفاء/إظهار العناصر</button>").addClass("btn label border control-btn").css({
       "background-color": "#f0f0f0",
       "color": "#800000",
-      "padding": "10px 15px",
-      "margin": "8px",
-      "width": "45%",
-      "font-size": "16px",
-      "border-radius": "10px",
-      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
-      "transition": "all 0.3s ease"
-    }).append('<span class="fa fa-smile-o" style="margin-right: 5px; font-size: 18px;"></span>').click(function() {
+      "padding": "5px 8px",
+      "margin": "4px",
+      "width": "30%",
+      "font-size": "12px",
+      "border-radius": "6px",
+      "box-shadow": "0 1px 3px rgba(0,0,0,0.1)",
+      "transition": "all 0.3s ease",
+      "display": "inline-block"
+    }).append('<span class="fa fa-smile-o" style="margin-right: 3px; font-size: 12px;"></span>').click(function() {
       isEmojisHidden = !isEmojisHidden;
       if (isEmojisHidden) {
         $(".emobc").show();
-        $(this).html("إخفاء العناصر التعبيرية").append('<span class="fa fa-smile-o" style="margin-right: 5px; font-size: 18px;"></span>');
+        $(this).html("إخفاء العناصر").append('<span class="fa fa-smile-o" style="margin-right: 3px; font-size: 12px;"></span>');
         $(this).css("background-color", "#e0e0e0");
       } else {
         $(".emobc").hide();
-        $(this).html("إظهار العناصر التعبيرية").append('<span class="fa fa-smile-o" style="margin-right: 5px; font-size: 18px;"></span>');
+        $(this).html("إظهار العناصر").append('<span class="fa fa-smile-o" style="margin-right: 3px; font-size: 12px;"></span>');
         $(this).css("background-color", "#f0f0f0");
       }
     });
@@ -223,40 +239,36 @@
       function() { $(this).css("background-color", isEmojisHidden ? "#e0e0e0" : "#f0f0f0"); }
     );
     
-    $(".primaryborder").append(fontButton);
-    
-    // إضافة أزرار لتغيير الخطوط - تم تحسين المظهر وتكبير الحجم
+    // إضافة أزرار لتغيير الخطوط - تم تحسين المظهر وتصغير الحجم
     let fonts = [
       {'name': 'الخط الافتراضي', 'css': ''},
-      {'name': 'خط الجزيرة', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Aref Ruqaa\', FontAwesome !important; font-weight: bold !important; font-size: 16px !important; }'},
-      {'name': 'خط اللطيف', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Lateef\', FontAwesome !important; font-weight: bold !important; font-size: 16px !important; }'},
-      {'name': 'خط آيفون', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Tajawal\', sans-serif !important; font-weight: bold !important; font-size: 16px !important; }'},
-      {'name': 'خط الكوفي', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Reem Kufi\', sans-serif !important; font-weight: bold !important; font-size: 16px !important; }'},
-      {'name': 'خط أميري', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Amiri\', FontAwesome !important; font-weight: bold !important; font-size: 16px !important; }'},
-      {'name': 'خط تجوال', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Mirza:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Mirza\', Ruqaa !important; font-weight: bold !important; font-size: 16px !important; }'}
+      {'name': 'خط الجزيرة', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Aref Ruqaa\', FontAwesome !important; font-weight: bold !important; font-size: 14px !important; }'},
+      {'name': 'خط اللطيف', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Lateef\', FontAwesome !important; font-weight: bold !important; font-size: 14px !important; }'},
+      {'name': 'خط آيفون', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Tajawal\', sans-serif !important; font-weight: bold !important; font-size: 14px !important; }'},
+      {'name': 'خط الكوفي', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Reem Kufi\', sans-serif !important; font-weight: bold !important; font-size: 14px !important; }'},
+      {'name': 'خط أميري', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Amiri\', FontAwesome !important; font-weight: bold !important; font-size: 14px !important; }'},
+      {'name': 'خط تجوال', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Mirza:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Mirza\', Ruqaa !important; font-weight: bold !important; font-size: 14px !important; }'}
     ];
     
     let currentFont = 0;
     let styleTag = $("<style>").attr("type", "text/css").attr("id", "fontStyle").appendTo("head");
     
-    let fontSwitcher = $("<button>").html("تغيير الخط إلى: " + fonts[0]["name"]).addClass("btn border font-switcher").css({
+    let fontSwitcher = $("<button>").html("تغيير الخط").addClass("btn border font-switcher").css({
       "background-color": "#f0f0f0",
       "color": "#800000",
-      "padding": "12px 15px",
-      "margin": "10px 8px",
-      "width": "95%",
-      "font-size": "16px",
-      "border-radius": "10px",
-      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
+      "padding": "5px 8px",
+      "margin": "4px",
+      "width": "30%",
+      "font-size": "12px",
+      "border-radius": "6px",
+      "box-shadow": "0 1px 3px rgba(0,0,0,0.1)",
       "transition": "all 0.3s ease",
-      "display": "flex",
-      "align-items": "center",
-      "justify-content": "center"
-    }).append("<span class=\"fa fa-font\" style=\"margin-right: 8px; font-size: 18px;\"></span>").click(function() {
+      "display": "inline-block"
+    }).append("<span class=\"fa fa-font\" style=\"margin-right: 3px; font-size: 12px;\"></span>").click(function() {
       currentFont = (currentFont + 1) % fonts.length;
       styleTag.html(fonts[currentFont]["css"]);
       let nextFontName = fonts[(currentFont + 1) % fonts.length]["name"];
-      $(this).html(currentFont === 0 ? "إعادة الخط الافتراضي" : "تغيير الخط إلى: " + nextFontName).append("<span class=\"fa fa-font\" style=\"margin-right: 8px; font-size: 18px;\"></span>");
+      $(this).html(currentFont === 0 ? "الخط الافتراضي" : "تغيير الخط").append("<span class=\"fa fa-font\" style=\"margin-right: 3px; font-size: 12px;\"></span>");
     });
     
     // إضافة تأثير hover للزر
@@ -265,153 +277,163 @@
       function() { $(this).css("background-color", "#f0f0f0"); }
     );
     
-    $(".primaryborder").append(fontSwitcher);
-    
     // إضافة ستايل للأزرار - تم تحسين المظهر
     $('<style>\
     /* تنسيق عام للأزرار */\
     button, .btn {\
       transition: all 0.3s ease;\
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);\
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);\
       border: none !important;\
       outline: none !important;\
+      font-size: 12px !important;\
+      padding: 5px 8px !important;\
+      margin: 3px !important;\
     }\
     \
     button:hover, .btn:hover {\
-      transform: translateY(-2px);\
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);\
+      transform: translateY(-1px);\
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);\
     }\
     \
     button:active, .btn:active {\
       transform: translateY(1px);\
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);\
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);\
     }\
     \
     /* تنسيق خاص بالعناصر */\
     #mD .ba.u-bb.mE {\
       display: block !important;\
-      margin: 5px !important;\
-      margin-bottom: 8px !important;\
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.1), 0 0 0 2px #be !important;\
-      border-radius: 10px !important;\
-      padding: 10px !important;\
+      margin: 3px !important;\
+      margin-bottom: 5px !important;\
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(0, 0, 0, 0.1), 0 0 0 1px #be !important;\
+      border-radius: 6px !important;\
+      padding: 5px !important;\
     }\
     \
     #7P .ba.u-bb {\
       display: block !important;\
-      margin: 5px !important;\
-      margin-bottom: 8px !important;\
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.1), 0 0 0 2px #be !important;\
-      border-radius: 10px !important;\
-      padding: 10px !important;\
+      margin: 3px !important;\
+      margin-bottom: 5px !important;\
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(0, 0, 0, 0.1), 0 0 0 1px #be !important;\
+      border-radius: 6px !important;\
+      padding: 5px !important;\
     }\
     \
     #7P .mG.mH {\
       width: 99% !important;\
       height: 99% !important;\
-      border-radius: 10px !important;\
+      border-radius: 6px !important;\
       text-align: center !important;\
       z-index: 100 !important;\
       font-family: jazeera !important;\
       border: 1px solid #8f !important;\
-      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), 0 0 5px rgba(240, 192, 31, 0.5), 0 0 0 2px #8f !important;\
-      padding: 10px !important;\
-      margin: 5px !important;\
+      box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(240, 192, 31, 0.5), 0 0 0 1px #8f !important;\
+      padding: 5px !important;\
+      margin: 3px !important;\
     }\
     \
     #7P .d-7Z.fl {\
       background-color: #707070 !important;\
       background-image: url(https://madahost.online/sico/1740773503732.jpg) !important;\
       background-size: cover !important;\
-      border-radius: 10px !important;\
-      padding: 10px !important;\
-      margin: 5px !important;\
+      border-radius: 6px !important;\
+      padding: 5px !important;\
+      margin: 3px !important;\
     }\
     \
     #7P .bg.u-msg.7G {\
       color: #8f !important;\
-      font-size: 16px !important;\
-      padding: 8px !important;\
-      margin: 5px !important;\
-      border-radius: 8px !important;\
+      font-size: 14px !important;\
+      padding: 5px !important;\
+      margin: 3px !important;\
+      border-radius: 6px !important;\
     }\
     \
     #7P {\
       background-color: #707070 !important;\
       background-image: url(https) !important;\
       background-size: cover !important;\
-      padding: 10px !important;\
+      padding: 5px !important;\
     }\
     </style>').appendTo('head');
     
     // إضافة ستايل للصفحة - تم تحسين المظهر
     $('<style>\
     #mP {\
-      margin: 10px !important;\
-      border-left: 10px solid #b6 !important;\
+      margin: 5px !important;\
+      border-left: 5px solid #b6 !important;\
       display: block !important;\
       content-type: text !important;\
-      border-top: 2px solid #b6 !important;\
-      border-bottom: 2px solid #b6 !important;\
-      border-right: 2px solid #b6 !important;\
-      border-radius: 10px !important;\
+      border-top: 1px solid #b6 !important;\
+      border-bottom: 1px solid #b6 !important;\
+      border-right: 1px solid #b6 !important;\
+      border-radius: 6px !important;\
       font-family: \'Ruqaa\', sans-serif !important;\
-      padding: 10px !important;\
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;\
+      padding: 5px !important;\
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1) !important;\
     }\
     \
     #b8 {\
       text-align: center !important;\
-      border-radius: 10px !important;\
-      height: 30px !important;\
+      border-radius: 6px !important;\
+      height: 24px !important;\
       font-family: \'Ruqaa\', sans-serif !important;\
-      padding: 5px !important;\
-      margin: 5px !important;\
-      font-size: 16px !important;\
+      padding: 3px !important;\
+      margin: 3px !important;\
+      font-size: 14px !important;\
     }\
     \
     /* تنسيق عام للصفحة */\
     body {\
-      padding: 10px !important;\
+      padding: 5px !important;\
     }\
     \
     /* تنسيق مربعات الإدخال */\
     input, textarea, select {\
-      font-size: 16px !important;\
-      padding: 10px !important;\
-      margin: 5px !important;\
-      border-radius: 8px !important;\
+      font-size: 14px !important;\
+      padding: 5px !important;\
+      margin: 3px !important;\
+      border-radius: 6px !important;\
       border: 1px solid #ccc !important;\
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1) !important;\
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.1) !important;\
     }\
     \
     /* تنسيق الروابط */\
     a {\
-      font-size: 16px !important;\
+      font-size: 14px !important;\
       transition: all 0.3s ease !important;\
     }\
     \
     a:hover {\
       text-decoration: none !important;\
     }\
+    \
+    /* تنسيق حاوية الأزرار */\
+    .primaryborder {\
+      display: flex !important;\
+      flex-wrap: wrap !important;\
+      justify-content: space-between !important;\
+      align-items: center !important;\
+      gap: 3px !important;\
+    }\
     </style>').appendTo('head');
     
     // إضافة مربع ترحيبي - تم تحسين المظهر
     $('<div class="welcome-box">\
         <marquee direction="right" width="100%" id="n5" onmouseover="this.stop()" onmouseout="this.start()"\
-        scrolldelay="0" scrollamount="3" style="font-family: \'Ruqaa\', sans-serif, FontAwesome; font-size: 16px; color: #333; padding: 10px; background: linear-gradient(to right, #f0f0f0, #ffffff, #f0f0f0); border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin: 10px 0;">\
+        scrolldelay="0" scrollamount="3" style="font-family: \'Ruqaa\', sans-serif, FontAwesome; font-size: 14px; color: #333; padding: 5px; background: linear-gradient(to right, #f0f0f0, #ffffff, #f0f0f0); border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin: 5px 0;">\
               اكتشف متعة التواصل في بيئة آمنة وموثوقة. موقعنا يوفر لك الخصوصية الكاملة، مما يتيح لك التفاعل بصدق وراحة \
         </marquee>\
     </div>').appendTo('body');
     
-    // إضافة زر لمسح الرسائل - تم تكبير الحجم
-    $('<img src="https://madahost.online/sico/nc.jpg" alt="مسح الرسائل" style="width:20px; height:20px; margin: 5px; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">').insertBefore('label.nosel.ninr.fl.uzr.label.label-primary');
+    // إضافة زر لمسح الرسائل - تم تصغير الحجم
+    $('<img src="https://madahost.online/sico/nc.jpg" alt="مسح الرسائل" style="width:16px; height:16px; margin: 3px; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">').insertBefore('label.nosel.ninr.fl.uzr.label.label-primary');
     
     // إضافة ستايل للأيقونات - تم تحسين التأثير
     $('<style>\
     .heart-ripple {\
       display: block;\
-      font-size: 20px;\
+      font-size: 16px;\
       margin: 2px;\
       background: transparent;\
       border-radius: 50%;\
@@ -419,7 +441,7 @@
       transform: scale(1);\
       z-index: 999;\
       color: #ff6b6b;\
-      text-shadow: 0 0 5px rgba(255,107,107,0.5);\
+      text-shadow: 0 0 3px rgba(255,107,107,0.5);\
     }\
     \
     @keyframes sparkle {\
@@ -428,19 +450,19 @@
         opacity: 1;\
       }\
       50% {\
-        transform: scale(1.6) translate(-30px);\
+        transform: scale(1.4) translate(-20px);\
         opacity: 0.8;\
       }\
       100% {\
-        transform: scale(1) translate(-60px);\
+        transform: scale(1) translate(-40px);\
         opacity: 0;\
       }\
     }\
     \
     /* تنسيق الأيقونات */\
     .fa {\
-      font-size: 18px !important;\
-      margin: 0 5px !important;\
+      font-size: 14px !important;\
+      margin: 0 3px !important;\
     }\
     </style>').appendTo('head');
     
@@ -449,49 +471,49 @@
     .fa.fa-user.label.label-primary.fa-user-plus, .fa.fa-user.label.label-primary {\
       background-color: transparent !important;\
       color: transparent !important;\
-      font-size: 16px !important;\
+      font-size: 14px !important;\
       background-image: linear-gradient(90deg, #007bff, #00FFFF, #FFD700, #007bff);\
       background-size: 300% 100%;\
       -webkit-background-clip: text;\
       animation: sparkle 4s ease-in-out infinite;\
       border: 0px !important;\
       font-family: jazeera !important;\
-      padding: 10px !important;\
-      margin: 5px !important;\
+      padding: 5px !important;\
+      margin: 3px !important;\
       display: inline-block !important;\
-      border-radius: 8px !important;\
+      border-radius: 6px !important;\
     }\
     \
     /* تنسيق عام للأزرار */\
     .btn, button {\
-      font-size: 16px !important;\
-      padding: 10px 15px !important;\
-      margin: 5px !important;\
-      border-radius: 10px !important;\
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;\
+      font-size: 12px !important;\
+      padding: 5px 8px !important;\
+      margin: 3px !important;\
+      border-radius: 6px !important;\
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;\
     }\
     \
     .btn:hover, button:hover {\
-      transform: translateY(-2px) !important;\
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;\
+      transform: translateY(-1px) !important;\
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15) !important;\
     }\
     \
     .btn:active, button:active {\
       transform: translateY(1px) !important;\
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;\
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;\
     }\
     </style>').appendTo('head');
     
     // إضافة زر لمسح الرسائل - تم تحسين المظهر والوظيفة
     $(".fa-trash-o").css({
-      "padding": "8px",
-      "margin": "5px",
-      "font-size": "18px",
+      "padding": "5px",
+      "margin": "3px",
+      "font-size": "14px",
       "cursor": "pointer",
       "color": "#d9534f",
       "background-color": "#f8f8f8",
       "border-radius": "50%",
-      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
+      "box-shadow": "0 1px 3px rgba(0,0,0,0.1)",
       "transition": "all 0.3s ease"
     }).hover(
       function() { $(this).css({"background-color": "#f0f0f0", "transform": "scale(1.1)"}); },
@@ -519,19 +541,19 @@
     
     // إضافة زر للتحكم بالصوت - تم تحسين المظهر
     $(".fa-volume-up").css({
-      "padding": "8px",
-      "margin": "5px",
-      "font-size": "18px",
+      "padding": "5px",
+      "margin": "3px",
+      "font-size": "14px",
       "cursor": "pointer",
       "color": "#5cb85c",
       "background-color": "#f8f8f8",
       "border-radius": "50%",
-      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
+      "box-shadow": "0 1px 3px rgba(0,0,0,0.1)",
       "transition": "all 0.3s ease"
     }).hover(
       function() { $(this).css({"background-color": "#f0f0f0", "transform": "scale(1.1)"}); },
       function() { $(this).css({"background-color": "#f8f8f8", "transform": "scale(1)"}); }
-    ).append('<img role="sendImageButton" src="https://madahost.online/sico/1740206278289.jpg" style="width:16px; height:16px; opacity:0.9; margin-left: 5px;">');
+    ).append('<img role="sendImageButton" src="https://madahost.online/sico/1740206278289.jpg" style="width:12px; height:12px; opacity:0.9; margin-left: 3px;">');
     
     $(".fa-volume-up").on('click', function() {
       if (window.Muteall && typeof window.Muteall === 'function') {
@@ -549,7 +571,7 @@
         $(this).val($(this).val().substring(0, maxLength));
         // إضافة إشعار للمستخدم
         if (!$('.char-limit-notice').length) {
-          $('<div class="char-limit-notice" style="color: #d9534f; font-size: 14px; margin: 5px 0;">تم تجاوز الحد الأقصى للحروف (200 حرف)</div>').insertAfter($(this));
+          $('<div class="char-limit-notice" style="color: #d9534f; font-size: 12px; margin: 3px 0;">تم تجاوز الحد الأقصى للحروف (200 حرف)</div>').insertAfter($(this));
           setTimeout(function() {
             $('.char-limit-notice').fadeOut(500, function() {
               $(this).remove();
@@ -562,7 +584,7 @@
     // إضافة عداد للحروف
     $('.u-msg').each(function() {
       let $this = $(this);
-      let $counter = $('<div class="char-counter" style="font-size: 12px; color: #777; text-align: right; margin-right: 10px;">0/' + maxLength + '</div>');
+      let $counter = $('<div class="char-counter" style="font-size: 10px; color: #777; text-align: right; margin-right: 5px;">0/' + maxLength + '</div>');
       $counter.insertAfter($this);
       
       $this.on('input', function() {
@@ -578,17 +600,18 @@
     });
     
     // إضافة زر لتحديث الصفحة
-    let refreshButton = $("<button>تحديث الصفحة</button>").addClass("btn border refresh-btn").css({
+    let refreshButton = $("<button>تحديث</button>").addClass("btn border refresh-btn").css({
       "background-color": "#5cb85c",
       "color": "white",
-      "padding": "10px 15px",
-      "margin": "8px",
-      "width": "45%",
-      "font-size": "16px",
-      "border-radius": "10px",
-      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
-      "transition": "all 0.3s ease"
-    }).append('<span class="fa fa-refresh" style="margin-right: 5px; font-size: 18px;"></span>').click(function() {
+      "padding": "5px 8px",
+      "margin": "4px",
+      "width": "30%",
+      "font-size": "12px",
+      "border-radius": "6px",
+      "box-shadow": "0 1px 3px rgba(0,0,0,0.1)",
+      "transition": "all 0.3s ease",
+      "display": "inline-block"
+    }).append('<span class="fa fa-refresh" style="margin-right: 3px; font-size: 12px;"></span>').click(function() {
       location.reload();
     });
     
@@ -598,7 +621,12 @@
       function() { $(this).css({"background-color": "#5cb85c", "transform": "scale(1)"}); }
     );
     
+    // تنظيم الأزرار في حاوية
+    $(".primaryborder").empty();
+    $(".primaryborder").append(viewButton);
+    $(".primaryborder").append(fontButton);
     $(".primaryborder").append(refreshButton);
+    $(".primaryborder").append(fontSwitcher);
     
     console.log("تم تحميل سكربت شات مدى المطور بنجاح!");
   });
