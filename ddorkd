@@ -17,27 +17,7 @@
     $("body, [style*='font-family:-apple-system;'], div, #d2, #pass1, #pass2, #u1, #u2, #u3").css({
       "font-family": "Ruqaa, sans-serif",
       "font-size": "16px"
-    });
-    
-    // إضافة هيدر للموقع
-    $('<div class="mada-header">\
-        <div>\
-            <div style="background-image: linear-gradient(to right, #f0f0f0, #ffffff, #f0f0f0); color: #003300; border-radius: 15px; border-bottom: 2px solid #ffffff; border-top: 2px solid #ffffff; padding: 10px 0; margin: 5px 0; width: 100%;">\
-                <span style="background-color: #f0f0f0; border-radius: 10px; font-family: \'Ruqaa\', FontAwesome; margin: 5px 10px; padding: 12px 15px; font-size: 18px; font-weight: bold; display: inline-block;">\
-                    شات مـدى للجوال \
-                </span>\
-            </div>\
-        </div>\
-    </div>').insertBefore('div#tlogins');
-    
-    // إضافة مربع رسائل ترحيبي
-    $(".primaryborder").before('<div class="welcome-message">\
-      <marquee direction="right" width="100%" id="nl" onmouseover="this.stop()" onmouseout="this.start()"\
-      style="font-family: \'Ruqaa\', sans-serif; margin: 5px 0; height: 30px; padding: 5px; background-color: #f8f8f8; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);" scrolldelay="1" scrollamount="3">\
-      أهلا وسهلا .. بكم في شاتكم : [ شــات مــدى ] ، مايكات ، مسابقات ، فعاليات ، جوائز - نتمنى لكم قضاء أمتع\
-      الأوقات | الإدارة ..\
-      </marquee>\
-    </div>');
+    }));
     
     // إضافة زر للتحكم بصوت المايكات - تم تكبير الحجم
     $('<span class="fa fa-microphone control-button" style="font-family: FontAwesome, sans-serif; font-size: 18px; margin: 0 5px; padding: 5px; cursor: pointer;"></span>').insertBefore('.nav-tabs');
