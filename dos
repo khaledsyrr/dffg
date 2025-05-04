@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("<button>نسخة خفيفة</button>").css({
+    $("<button>Ù†Ø³Ø®Ø© Ø®ÙÙŠÙØ©</button>").css({
         position: "fixed",
         top: "240px",
         right: "20px",
@@ -15,20 +15,20 @@ $(document).ready(function () {
         window.location.href = "https://ss6zz.com/";
     }).appendTo("body");
 
-    // ذئاب هوست
-    $("button:contains('دخول')").on("click", function () {
-        $("button:contains('نسخة خفيفة')").hide();
+    // Ø°Ø¦Ø§Ø¨ Ù‡ÙˆØ³Øª
+    $("button:contains('Ø¯Ø®ÙˆÙ„')").on("click", function () {
+        $("button:contains('Ù†Ø³Ø®Ø© Ø®ÙÙŠÙØ©')").hide();
     });
 });
 
 $(document).ready(function() {
-    // DIMASHKHOST - تعديل النص أثناء الكتابة
+    // DIMASHKHOST - ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ù†Øµ Ø£Ø«Ù†Ø§Ø¡ Ø§Ù„ÙƒØªØ§Ø¨Ø©
     $(document).on('input', '.tbox', function() {
         let text = $(this).val();
         $(this).val(text.replace(/vt\.tiktok\.com/g, 'vm.tiktok.com'));
     });
 
-    // ذئاب هوست - تعديل النص عند الإرسال
+    // Ø°Ø¦Ø§Ø¨ Ù‡ÙˆØ³Øª - ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ù†Øµ Ø¹Ù†Ø¯ Ø§Ù„Ø¥Ø±Ø³Ø§Ù„
     $(document).on('click', '.fa-send', function() {
         $('.tbox').each(function() {
             let text = $(this).val();
@@ -38,7 +38,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    $('button.btn.fr.btn-warning.fa.fa-paint-brush').text('لون');
+    $('button.btn.fr.btn-warning.fa.fa-paint-brush').text('Ù„ÙˆÙ†');
 });
 
 $(document).ready(function() {
@@ -186,12 +186,12 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    let isDesktopMode = false; // حالة العرض (وضع الكمبيوتر أو الطبيعي)
+    let isDesktopMode = false; // Ø­Ø§Ù„Ø© Ø§Ù„Ø¹Ø±Ø¶ (ÙˆØ¶Ø¹ Ø§Ù„ÙƒÙ…Ø¨ÙŠÙˆØªØ± Ø£Ùˆ Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠ)
 
-    // إضافة زر جديد أسفل تعطيل زيارة البروفايل
+    // Ø¥Ø¶Ø§ÙØ© Ø²Ø± Ø¬Ø¯ÙŠØ¯ Ø£Ø³ÙÙ„ ØªØ¹Ø·ÙŠÙ„ Ø²ÙŠØ§Ø±Ø© Ø§Ù„Ø¨Ø±ÙˆÙØ§ÙŠÙ„
     const newButton = $('<label></label>')
-        .text('عرض سطح المكتب')
-        .addClass('label tc border btn label-info fl') // نفس التنسيق
+        .text('Ø¹Ø±Ø¶ Ø³Ø·Ø­ Ø§Ù„Ù…ÙƒØªØ¨')
+        .addClass('label tc border btn label-info fl') // Ù†ÙØ³ Ø§Ù„ØªÙ†Ø³ÙŠÙ‚
         .css({
             'background-color': 'ghostwhite',
             'color': 'black',
@@ -199,26 +199,26 @@ $(document).ready(function() {
             'padding': '6px',
             'width': '98%'
         })
-        .prepend('<span class="fl fa fa-desktop" style="font-family: FontAwesome, sans-serif;"></span> ') // الأيقونة
+        .prepend('<span class="fl fa fa-desktop" style="font-family: FontAwesome, sans-serif;"></span> ') // Ø§Ù„Ø£ÙŠÙ‚ÙˆÙ†Ø©
         .click(function() {
             if (isDesktopMode) {
-                // العودة إلى الوضع الطبيعي
+                // Ø§Ù„Ø¹ÙˆØ¯Ø© Ø¥Ù„Ù‰ Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠ
                 $('meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1.0');
-                $(this).text('عرض سطح المكتب')
+                $(this).text('Ø¹Ø±Ø¶ Ø³Ø·Ø­ Ø§Ù„Ù…ÙƒØªØ¨')
                     .prepend('<span class="fl fa fa-desktop" style="font-family: FontAwesome, sans-serif;"></span> ');
                 isDesktopMode = false;
-                alert('تم العودة إلى الوضع الطبيعي');
+                alert('ØªÙ… Ø§Ù„Ø¹ÙˆØ¯Ø© Ø¥Ù„Ù‰ Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠ');
             } else {
-                // التبديل إلى وضع الكمبيوتر
+                // Ø§Ù„ØªØ¨Ø¯ÙŠÙ„ Ø¥Ù„Ù‰ ÙˆØ¶Ø¹ Ø§Ù„ÙƒÙ…Ø¨ÙŠÙˆØªØ±
                 $('meta[name="viewport"]').attr('content', 'width=1024');
-                $(this).text('عرض الهاتف')
+                $(this).text('Ø¹Ø±Ø¶ Ø§Ù„Ù‡Ø§ØªÙ')
                     .prepend('<span class="fl fa fa-mobile" style="font-family: FontAwesome, sans-serif;"></span> ');
                 isDesktopMode = true;
-                alert('تم تحويل العرض إلى وضع الكمبيوتر');
+                alert('ØªÙ… ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¹Ø±Ø¶ Ø¥Ù„Ù‰ ÙˆØ¶Ø¹ Ø§Ù„ÙƒÙ…Ø¨ÙŠÙˆØªØ±');
             }
         });
 
-    // إضافة الزر إلى العنصر الموجود
+    // Ø¥Ø¶Ø§ÙØ© Ø§Ù„Ø²Ø± Ø¥Ù„Ù‰ Ø§Ù„Ø¹Ù†ØµØ± Ø§Ù„Ù…ÙˆØ¬ÙˆØ¯
     $('#newoption .not_geri').append(newButton);
 });
 
@@ -253,7 +253,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^
 
 
 $(function() {
-    var maxChars = 200; // الحد الأقصى لعدد الأحرف
+    var maxChars = 200; // Ø§Ù„Ø­Ø¯ Ø§Ù„Ø£Ù‚ØµÙ‰ Ù„Ø¹Ø¯Ø¯ Ø§Ù„Ø£Ø­Ø±Ù
     
     $("textarea.u-statc, textarea.u-topic, input.stopic, textarea.fl").on("input", function() {
         if ($(this).val().length > maxChars) {
