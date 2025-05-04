@@ -1,4 +1,4 @@
-// سكربت شات مدى - نسخة مطورة
+
 (function() {
   // تأكد من وجود jQuery
   if (typeof jQuery === 'undefined') {
@@ -18,6 +18,9 @@
       "font-family": "Ruqaa, sans-serif",
       "font-size": "16px"
     });
+    
+    
+    
     
     
     // إضافة زر للتحكم بصوت المايكات - تم تكبير الحجم
@@ -75,6 +78,12 @@
       }\
     </style>').appendTo('body');
     
+    // تحديث الصور
+    function updateImages() {
+      $('img.co.u-pic[src="sico/z1d9cqu9vt10.png"]').attr('src', 'https://madahost.online/sico/1745769546196.gif');
+      $('img.co.u-pic[src="sico/jo.png"]').attr('src', 'https://madahost.online/sico/1738506623066.gif');
+      $('img.u-ico').attr('src', 'https://madahost.online/sico/1738506624947.gif');
+    }
     
     // تحديث الصور مباشرة وكل 2 ثانية
     updateImages();
@@ -151,11 +160,37 @@
       "border-radius": "10px"
     });
     
+    // تعديل أيقونات الأزرار وتكبير حجمها
+    $('button.fa.fa-send.fl.btn.btn-primary').html(function(a, b) {
+      return '<span style="font-family: \'Ruqaa\', FontAwesome; font-size: 16px;">' + $(this).html() + '</span>';
+    }).css({
+      "padding": "10px 15px",
+      "margin": "5px",
+      "border-radius": "10px"
+    });
     
+    // تعديل أزرار الإرسال
+    $('.fa.fa-send.fl.fa-mute-mic').html(function(a, b) {
+      return '<span style="font-family: \'Ruqaa\', FontAwesome; font-size: 16px;">' + $(this).html() + '</span>';
+    }).css({
+      "padding": "8px 12px",
+      "margin": "5px",
+      "border-radius": "8px"
+    });
     
+    $('.fa.fa-send.fl.fa-mute-mic').each(function() {
+      let a = $(this).html();
+      $(this).html('<span style="font-family: \'Ruqaa\', FontAwesome; font-size: 16px;">' + a + '</span>');
+    });
     
-    
-    
+    // تعديل خط الرسائل وتكبير حجمها
+    $(".u-msg.break.fl").css({
+      "font-family": "Ruqaa, FontAwesome",
+      "font-size": "16px",
+      "padding": "8px",
+      "margin": "5px",
+      "border-radius": "8px"
+    });
     
     // إضافة أزرار للتحكم بالخطوط والمظهر - تم تكبير الحجم وتحسين المظهر
     let isEmojisHidden = false;
@@ -232,7 +267,26 @@
     
     $(".primaryborder").append(fontSwitcher);
     
-    
+    // إضافة ستايل للأزرار - تم تحسين المظهر
+    $('<style>\
+    /* تنسيق عام للأزرار */\
+    button, .btn {\
+      transition: all 0.3s ease;\
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);\
+      border: none !important;\
+      outline: none !important;\
+    }\
+    \
+    button:hover, .btn:hover {\
+      transform: translateY(-2px);\
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);\
+    }\
+    \
+    button:active, .btn:active {\
+      transform: translateY(1px);\
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);\
+    }\
+    \
     /* تنسيق خاص بالعناصر */\
     #mD .ba.u-bb.mE {\
       display: block !important;\
@@ -290,8 +344,47 @@
     }\
     </style>').appendTo('head');
     
-  
-   
+    // إضافة ستايل للصفحة - تم تحسين المظهر
+    $('<style>\
+    #mP {\
+      margin: 10px !important;\
+      border-left: 10px solid #b6 !important;\
+      display: block !important;\
+      content-type: text !important;\
+      border-top: 2px solid #b6 !important;\
+      border-bottom: 2px solid #b6 !important;\
+      border-right: 2px solid #b6 !important;\
+      border-radius: 10px !important;\
+      font-family: \'Ruqaa\', sans-serif !important;\
+      padding: 10px !important;\
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;\
+    }\
+    \
+    #b8 {\
+      text-align: center !important;\
+      border-radius: 10px !important;\
+      height: 30px !important;\
+      font-family: \'Ruqaa\', sans-serif !important;\
+      padding: 5px !important;\
+      margin: 5px !important;\
+      font-size: 16px !important;\
+    }\
+    \
+    /* تنسيق عام للصفحة */\
+    body {\
+      padding: 10px !important;\
+    }\
+    \
+    /* تنسيق مربعات الإدخال */\
+    input, textarea, select {\
+      font-size: 16px !important;\
+      padding: 10px !important;\
+      margin: 5px !important;\
+      border-radius: 8px !important;\
+      border: 1px solid #ccc !important;\
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1) !important;\
+    }\
+    \
     /* تنسيق الروابط */\
     a {\
       font-size: 16px !important;\
