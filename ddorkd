@@ -17,7 +17,8 @@
     $("body, [style*='font-family:-apple-system;'], div, #d2, #pass1, #pass2, #u1, #u2, #u3").css({
       "font-family": "Ruqaa, sans-serif",
       "font-size": "16px"
-    }));
+    });
+    
     
     // إضافة زر للتحكم بصوت المايكات - تم تكبير الحجم
     $('<span class="fa fa-microphone control-button" style="font-family: FontAwesome, sans-serif; font-size: 18px; margin: 0 5px; padding: 5px; cursor: pointer;"></span>').insertBefore('.nav-tabs');
