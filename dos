@@ -1,26 +1,4 @@
-$(document).ready(function () {
-    // wolveshost
-    $("<button>نسخة خفيفة</button>").css({
-        position: "fixed",
-        top: "240px",
-        right: "20px",
-        padding: "6px 12px",
-        fontSize: "14px",
-        zIndex: 1, // 
-        backgroundColor: $("body").css("background-color"),
-        color: "#ffffff",
-        border: "1px solid #ccc",
-        borderRadius: "6px",
-        cursor: "pointer"
-    }).on("click", function () {
-        window.location.href = "https://ss6zz.com/";
-    }).appendTo("body");
 
-    // wolveshost
-    $("button:contains('دخول')").on("click", function () {
-        $("button:contains('نسخة خفيفة')").hide();
-    });
-});
 
 
 
