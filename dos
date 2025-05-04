@@ -201,26 +201,34 @@ $(document).ready(function() {
         .text('عرض سطح المكتب')
         .addClass('label tc border btn label-info fl') // نفس التنسيق
         .css({
-            'background-color': 'ghostwhite',
-            'color': 'black',
-            'margin': '1px 4px',
-            'padding': '6px',
-            'width': '98%'
+            'background-color': '#9c27b0', // لون بنفسجي مميز
+            'color': 'white',
+            'margin': '0 4px 15px 4px', // نفس هوامش الأزرار السابقة
+            'padding': '8px 12px',
+            'width': '98%',
+            'border-radius': '12px 12px 0 0', // شكل فريد - مستدير من الأعلى فقط
+            'box-shadow': '0 4px 8px rgba(156, 39, 176, 0.3)',
+            'transition': 'all 0.3s ease',
+            'display': 'flex',
+            'align-items': 'center',
+            'border-bottom': '3px solid #7b1fa2' // خط سفلي للتمييز
         })
-        .prepend('<span class="fl fa fa-desktop" style="font-family: FontAwesome, sans-serif;"></span> ') // الأيقونة
+        .prepend('<span class="fl fa fa-desktop" style="margin-left: 8px; background-color: rgba(255,255,255,0.2); padding: 6px; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;"></span> ') // الأيقونة بنفس تنسيق الأزرار السابقة
         .click(function() {
             if (isDesktopMode) {
                 // العودة إلى الوضع الطبيعي
                 $('meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1.0');
                 $(this).text('عرض سطح المكتب')
-                    .prepend('<span class="fl fa fa-desktop" style="font-family: FontAwesome, sans-serif;"></span> ');
+                    .css('background-color', '#9c27b0') // إعادة اللون الأصلي
+                    .prepend('<span class="fl fa fa-desktop" style="margin-left: 8px; background-color: rgba(255,255,255,0.2); padding: 6px; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;"></span> ');
                 isDesktopMode = false;
                 alert('تم العودة إلى الوضع الطبيعي');
             } else {
                 // التبديل إلى وضع الكمبيوتر
                 $('meta[name="viewport"]').attr('content', 'width=1024');
                 $(this).text('عرض الهاتف')
-                    .prepend('<span class="fl fa fa-mobile" style="font-family: FontAwesome, sans-serif;"></span> ');
+                    .css('background-color', '#673ab7') // تغيير اللون عند التبديل
+                    .prepend('<span class="fl fa fa-mobile" style="margin-left: 8px; background-color: rgba(255,255,255,0.2); padding: 6px; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;"></span> ');
                 isDesktopMode = true;
                 alert('تم تحويل العرض إلى وضع الكمبيوتر');
             }
@@ -229,7 +237,6 @@ $(document).ready(function() {
     // إضافة الزر إلى العنصر الموجود
     $('#newoption .not_geri').append(newButton);
 });
-
 
 
 
