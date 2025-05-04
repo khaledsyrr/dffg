@@ -12,7 +12,7 @@ $(document).ready(function () {
         borderRadius: "6px",
         cursor: "pointer"
     }).on("click", function () {
-        window.location.href = "https://www.gaza1.vip/";
+        window.location.href = "https://ss6zz.com/";
     }).appendTo("body");
 
     // ذئاب هوست
