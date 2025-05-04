@@ -1,4 +1,4 @@
-// سكربت شات مدى - نسخة مفكوكة التشفير
+// سكربت شات مدى - نسخة مطورة
 (function() {
   // تأكد من وجود jQuery
   if (typeof jQuery === 'undefined') {
@@ -11,11 +11,11 @@
     // تغيير نص العنوان
     $(".label-primary").html("لون");
     
-    // إضافة هيدر للموقع
-    $('<div>\
+    // إضافة هيدر للموقع - تم تحسين التنسيق
+    $('<div class="mada-header">\
         <div>\
-            <div width="94.5%" style="background-image:url;color: #003300;border-radius: 15px 15px 15px 15px;border-bottom: 2px solid #ffffff;border-top: 2px solid #ffffff;padding-bottom: 2px!important;">\
-                <span style="background-color: #f0f0f0;border-radius: 5px 5px 5px 5px;font-family: \'Ruqaa\', FontAwesome;margin: 2px 8px 2px 8px;padding: 10px 8px 10px 8px;">\
+            <div style="background-image: linear-gradient(to right, #f0f0f0, #ffffff, #f0f0f0); color: #003300; border-radius: 15px; border-bottom: 2px solid #ffffff; border-top: 2px solid #ffffff; padding: 10px 0; margin: 5px 0; width: 100%;">\
+                <span style="background-color: #f0f0f0; border-radius: 10px; font-family: \'Ruqaa\', FontAwesome; margin: 5px 10px; padding: 12px 15px; font-size: 18px; font-weight: bold; display: inline-block;">\
                     شات مـدى للجوال \
                 </span>\
             </div>\
@@ -23,13 +23,20 @@
     </div>').insertBefore('div#tlogins');
     
     // تعديل خطوط الموقع
-    $(".primaryborder").css("font-family", "Ruqaa, FontAwesome");
-    $("body, [style*='font-family:-apple-system;'], div, #d2, #pass1, #pass2, #u1, #u2, #u3").css("font-family", "Ruqaa, sans-serif");
+    $(".primaryborder").css({
+      "font-family": "Ruqaa, FontAwesome",
+      "font-size": "16px"
+    });
     
-    // إضافة مربع رسائل ترحيبي
-    $(".primaryborder").before('<div>\
+    $("body, [style*='font-family:-apple-system;'], div, #d2, #pass1, #pass2, #u1, #u2, #u3").css({
+      "font-family": "Ruqaa, sans-serif",
+      "font-size": "16px"
+    });
+    
+    // إضافة مربع رسائل ترحيبي - تم تحسين التنسيق
+    $(".primaryborder").before('<div class="welcome-message">\
       <marquee direction="right" width="100%" id="nl" onmouseover="this.stop()" onmouseout="this.start()"\
-      style="font-family: \'Ruqaa\', sans-serif; margin-right: -8px;margin-top: 2px;height: 20px;" scrolldelay="1" scrollamount="3">\
+      style="font-family: \'Ruqaa\', sans-serif; margin: 5px 0; height: 30px; padding: 5px; background-color: #f8f8f8; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);" scrolldelay="1" scrollamount="3">\
       أهلا وسهلا .. بكم في شاتكم : [ شــات مــدى ] ، مايكات ، مسابقات ، فعاليات ، جوائز - نتمنى لكم قضاء أمتع\
       الأوقات | الإدارة ..<span color="#nm" id="7u"></span>\
       <span id="7u" color="#bH"></span>\
@@ -41,17 +48,60 @@
       </marquee>\
     </div>');
     
-    // إضافة زر للتحكم بصوت المايكات
-    $('<span class="fa fa-microphone" style="font-family:FontAwesome, sans-serif;"></span> ').insertBefore('.nav-tabs');
+    // إضافة زر للتحكم بصوت المايكات - تم تكبير الحجم
+    $('<span class="fa fa-microphone control-button" style="font-family: FontAwesome, sans-serif; font-size: 18px; margin: 0 5px; padding: 5px; cursor: pointer;"></span>').insertBefore('.nav-tabs');
     
-    // إضافة زر للتحكم بالمايكات
-    $('<span class="fa fa-microphone-slash" style="font-family:FontAwesome, sans-serif;"></span> التحكم بصوت مايكات الغرفة').insertBefore('img.co.u-pic[src="sico/z1d9cqu9vt10.png"]');
+    // إضافة زر للتحكم بالمايكات - تم تكبير الحجم
+    $('<div class="mic-control" style="display: flex; align-items: center; margin: 10px 0; padding: 8px; background-color: #f0f0f0; border-radius: 10px;">\
+      <span class="fa fa-microphone-slash" style="font-family: FontAwesome, sans-serif; font-size: 18px; margin-right: 8px;"></span>\
+      <span style="font-size: 16px;">التحكم بصوت مايكات الغرفة</span>\
+    </div>').insertBefore('img.co.u-pic[src="sico/z1d9cqu9vt10.png"]');
     
-    // إضافة ستايل للخطوط
-    $('<style>@keyframes sparkle { 0% {transform:scale(1) } 50% {transform:scale(1.6) } 100% {transform:scale(1) }}.fa.fa-user.label.label-primary.fa-user-plus, .fa.fa-user.label.label-primary { color: transparent !important; background-color: transparent !important; font-size: 0px !important; background-image: linear-gradient(90deg, #007bff, #00FFFF, #FFD700, #007bff); background-size: 400% 400%; -webkit-background-clip: text; animation: sparkle 3s ease-in-out infinite; border: 0px !important; font-family: jazeera !important;}</style>').appendTo('head');
+    // إضافة ستايل للخطوط - تم تحسين التأثير
+    $('<style>\
+      @keyframes sparkle {\
+        0% {background-position: 0% 50%; transform: scale(1);}\
+        50% {background-position: 100% 50%; transform: scale(1.05);}\
+        100% {background-position: 0% 50%; transform: scale(1);}\
+      }\
+      .fa.fa-user.label.label-primary.fa-user-plus, .fa.fa-user.label.label-primary {\
+        color: transparent !important;\
+        background-color: transparent !important;\
+        font-size: 16px !important;\
+        background-image: linear-gradient(90deg, #007bff, #00FFFF, #FFD700, #007bff);\
+        background-size: 300% 100%;\
+        -webkit-background-clip: text;\
+        animation: sparkle 4s ease-in-out infinite;\
+        border: 0px !important;\
+        font-family: jazeera !important;\
+        padding: 8px 12px !important;\
+        margin: 5px !important;\
+        display: inline-block !important;\
+      }\
+    </style>').appendTo('head');
     
-    // إضافة ستايل للرسائل
-    $('<style>@keyframes sparkle { 0% {transform:scale(1) } 50% {transform:scale(1.6) } 100% {transform:scale(1) }}.u-msg.emoi.uzr.fl.spanable:not([style*="color:rgb"]) { color: transparent !important; margin-left: 2px !important; font-size: 15px !important; font-weight: bold !important; letter-spacing: 1px; text-transform: uppercase; background-image: linear-gradient(90deg, #007bff, #00FFFF, #FFD700, #007bff); background-size: 400% 400%; -webkit-background-clip: text; animation: sparkle 3s ease-in-out infinite;}</style>').appendTo('body');
+    // إضافة ستايل للرسائل - تم تحسين التأثير
+    $('<style>\
+      @keyframes messageSparkle {\
+        0% {background-position: 0% 50%;}\
+        50% {background-position: 100% 50%;}\
+        100% {background-position: 0% 50%;}\
+      }\
+      .u-msg.emoi.uzr.fl.spanable:not([style*="color:rgb"]) {\
+        color: transparent !important;\
+        margin: 5px !important;\
+        font-size: 16px !important;\
+        font-weight: bold !important;\
+        letter-spacing: 1px;\
+        text-transform: uppercase;\
+        background-image: linear-gradient(90deg, #007bff, #00FFFF, #FFD700, #007bff);\
+        background-size: 300% 100%;\
+        -webkit-background-clip: text;\
+        animation: messageSparkle 4s ease-in-out infinite;\
+        padding: 5px !important;\
+        border-radius: 8px !important;\
+      }\
+    </style>').appendTo('body');
     
     // تحديث الصور
     function updateImages() {
@@ -64,30 +114,43 @@
     updateImages();
     setInterval(updateImages, 2000);
     
-    // إضافة زر لتغيير نمط العرض
+    // إضافة زر لتغيير نمط العرض - تم تكبير الحجم وتحسين المظهر
     let isDesktopView = false;
-    let viewButton = $("<button>عرض الهاتف</button>").addClass("btn border").css({
-      "background-color": "#ffffff",
-      "color": "black",
-      "padding": "0px 5px",
-      "margin": "3px",
-      "width": "30%"
-    }).append('<span class="fa"></span>').click(function() {
+    let viewButton = $("<button>عرض الهاتف</button>").addClass("btn border view-toggle-btn").css({
+      "background-color": "#f0f0f0",
+      "color": "#333",
+      "padding": "10px 15px",
+      "margin": "8px",
+      "width": "45%",
+      "font-size": "16px",
+      "border-radius": "10px",
+      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
+      "transition": "all 0.3s ease"
+    }).append('<span class="fa fa-mobile" style="margin-right: 5px; font-size: 18px;"></span>').click(function() {
       if (isDesktopView) {
         $('meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1.0');
-        $(this).html("عرض الهاتف").append('<span class="fa"></span>');
+        $(this).html("عرض الهاتف").append('<span class="fa fa-mobile" style="margin-right: 5px; font-size: 18px;"></span>');
+        $(this).css("background-color", "#f0f0f0");
         isDesktopView = false;
         alert("تم العودة إلى الوضع الطبيعي");
       } else {
         $('meta[name="viewport"]').attr('content', 'width=1024');
-        $(this).html("عرض سطح المكتب").append('<span class="fa"></span>');
+        $(this).html("عرض سطح المكتب").append('<span class="fa fa-desktop" style="margin-right: 5px; font-size: 18px;"></span>');
+        $(this).css("background-color", "#e0e0e0");
         isDesktopView = true;
         alert("تم تحويل العرض إلى وضع الكمبيوتر");
       }
     });
+    
+    // إضافة تأثير hover للزر
+    viewButton.hover(
+      function() { $(this).css("background-color", "#e0e0e0"); },
+      function() { $(this).css("background-color", isDesktopView ? "#e0e0e0" : "#f0f0f0"); }
+    );
+    
     $(".primaryborder").append(viewButton);
     
-    // إضافة تأثير عند النقر على العناصر
+    // إضافة تأثير عند النقر على العناصر - تم تحسين التأثير
     $(document).on('click', 'button', function(e) {
       // إضافة تأثير نقطة عند النقر
       let ripple = $('<span class="heart-ripple">&#10084;</span>');
@@ -100,191 +163,366 @@
       ripple.css({
         'top': relativeY - 10 + 'px',
         'left': relativeX - 10 + 'px',
-        'position': 'absolute'
+        'position': 'absolute',
+        'font-size': '20px',
+        'color': '#ff6b6b'
       });
       
       $(this).append(ripple);
       
       setTimeout(function() {
-        ripple.fadeOut(200, function() {
+        ripple.fadeOut(300, function() {
           $(this).remove();
         });
-      }, 1000);
+      }, 800);
     });
     
-    // تعديل نص الأزرار
-    $("button.btn.btn-primary").html("دخول");
+    // تعديل نص الأزرار وتكبير حجمها
+    $("button.btn.btn-primary").html("دخول").css({
+      "font-size": "18px",
+      "padding": "10px 20px",
+      "margin": "8px",
+      "border-radius": "10px"
+    });
     
-    // تعديل أيقونات الأزرار
+    // تعديل أيقونات الأزرار وتكبير حجمها
     $('button.fa.fa-send.fl.btn.btn-primary').html(function(a, b) {
-      return '<span style="font-family: \'Ruqaa\', FontAwesome;">' + $(this).html() + '</span>';
+      return '<span style="font-family: \'Ruqaa\', FontAwesome; font-size: 16px;">' + $(this).html() + '</span>';
+    }).css({
+      "padding": "10px 15px",
+      "margin": "5px",
+      "border-radius": "10px"
     });
     
-    // تعديل أزرار الإرسال
+    // تعديل أزرار الإرسال وتكبير حجمها
     $('.fa.fa-send.fl.fa-mute-mic').html(function(a, b) {
-      return '<span style="font-family: \'Ruqaa\', FontAwesome;">' + $(this).html() + '</span>';
+      return '<span style="font-family: \'Ruqaa\', FontAwesome; font-size: 16px;">' + $(this).html() + '</span>';
+    }).css({
+      "padding": "8px 12px",
+      "margin": "5px",
+      "border-radius": "8px"
     });
     
     $('.fa.fa-send.fl.fa-mute-mic').each(function() {
       let a = $(this).html();
-      $(this).html('<span style="font-family: \'Ruqaa\', FontAwesome;">' + a + '</span>');
+      $(this).html('<span style="font-family: \'Ruqaa\', FontAwesome; font-size: 16px;">' + a + '</span>');
     });
     
-    // تعديل خط الرسائل
-    $(".u-msg.break.fl").css("font-family", "Ruqaa, FontAwesome");
+    // تعديل خط الرسائل وتكبير حجمها
+    $(".u-msg.break.fl").css({
+      "font-family": "Ruqaa, FontAwesome",
+      "font-size": "16px",
+      "padding": "8px",
+      "margin": "5px",
+      "border-radius": "8px"
+    });
     
-    // إضافة أزرار للتحكم بالخطوط والمظهر
+    // إضافة أزرار للتحكم بالخطوط والمظهر - تم تكبير الحجم وتحسين المظهر
     let isEmojisHidden = false;
-    let fontButton = $("<button>إخفاء/إظهار العناصر</button>").addClass("btn label border").css({
-      "background-color": "#ffffff",
+    let fontButton = $("<button>إخفاء/إظهار العناصر</button>").addClass("btn label border control-btn").css({
+      "background-color": "#f0f0f0",
       "color": "#800000",
-      "padding": "0px 5px",
-      "margin": "3px",
-      "width": "30%"
-    }).click(function() {
+      "padding": "10px 15px",
+      "margin": "8px",
+      "width": "45%",
+      "font-size": "16px",
+      "border-radius": "10px",
+      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
+      "transition": "all 0.3s ease"
+    }).append('<span class="fa fa-smile-o" style="margin-right: 5px; font-size: 18px;"></span>').click(function() {
       isEmojisHidden = !isEmojisHidden;
       if (isEmojisHidden) {
         $(".emobc").show();
-        $(this).html("إخفاء العناصر التعبيرية");
+        $(this).html("إخفاء العناصر التعبيرية").append('<span class="fa fa-smile-o" style="margin-right: 5px; font-size: 18px;"></span>');
+        $(this).css("background-color", "#e0e0e0");
       } else {
         $(".emobc").hide();
-        $(this).html("إظهار العناصر التعبيرية");
+        $(this).html("إظهار العناصر التعبيرية").append('<span class="fa fa-smile-o" style="margin-right: 5px; font-size: 18px;"></span>');
+        $(this).css("background-color", "#f0f0f0");
       }
     });
+    
+    // إضافة تأثير hover للزر
+    fontButton.hover(
+      function() { $(this).css("background-color", "#e0e0e0"); },
+      function() { $(this).css("background-color", isEmojisHidden ? "#e0e0e0" : "#f0f0f0"); }
+    );
+    
     $(".primaryborder").append(fontButton);
     
-    // إضافة أزرار لتغيير الخطوط
+    // إضافة أزرار لتغيير الخطوط - تم تحسين المظهر وتكبير الحجم
     let fonts = [
       {'name': 'الخط الافتراضي', 'css': ''},
-      {'name': 'خط الجزيرة', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Aref Ruqaa\', FontAwesome !important; font-weight: bold !important; font-size: 15px !important; }'},
-      {'name': 'خط اللطيف', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Lateef\', FontAwesome !important; font-weight: bold !important; font-size: 15px !important; }'},
-      {'name': 'خط آيفون', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Tajawal\', sans-serif !important; font-weight: bold !important; font-size: 15px !important; }'},
-      {'name': 'خط الكوفي', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Reem Kufi\', sans-serif !important; font-weight: bold !important; font-size: 15px !important; }'},
-      {'name': 'خط أميري', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Amiri\', FontAwesome !important; font-weight: bold !important; font-size: 15px !important; }'},
-      {'name': 'خط تجوال', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Mirza:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Mirza\', Ruqaa !important; font-weight: bold !important; font-size: 15px !important; }'}
+      {'name': 'خط الجزيرة', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Aref Ruqaa\', FontAwesome !important; font-weight: bold !important; font-size: 16px !important; }'},
+      {'name': 'خط اللطيف', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Lateef\', FontAwesome !important; font-weight: bold !important; font-size: 16px !important; }'},
+      {'name': 'خط آيفون', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Tajawal\', sans-serif !important; font-weight: bold !important; font-size: 16px !important; }'},
+      {'name': 'خط الكوفي', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Reem Kufi\', sans-serif !important; font-weight: bold !important; font-size: 16px !important; }'},
+      {'name': 'خط أميري', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Amiri\', FontAwesome !important; font-weight: bold !important; font-size: 16px !important; }'},
+      {'name': 'خط تجوال', 'css': '@import url(\'https://fonts.googleapis.com/css2?family=Mirza:wght@400;700&display=swap\'); .bg.mini, .mini.u-msg { font-family: \'Mirza\', Ruqaa !important; font-weight: bold !important; font-size: 16px !important; }'}
     ];
     
     let currentFont = 0;
     let styleTag = $("<style>").attr("type", "text/css").attr("id", "fontStyle").appendTo("head");
     
-    let fontSwitcher = $("<button>").html("تغيير الخط إلى: " + fonts[0]["name"]).addClass("btn border").css({
-      "background-color": "lightblue",
+    let fontSwitcher = $("<button>").html("تغيير الخط إلى: " + fonts[0]["name"]).addClass("btn border font-switcher").css({
+      "background-color": "#f0f0f0",
       "color": "#800000",
-      "padding": "0px 5px",
-      "margin": "3px",
-      "width": "98%"
-    }).append("<span class=\"fa fa-refresh\" style=\"font-family:FontAwesome, sans-serif;\"></span> ").click(function() {
+      "padding": "12px 15px",
+      "margin": "10px 8px",
+      "width": "95%",
+      "font-size": "16px",
+      "border-radius": "10px",
+      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
+      "transition": "all 0.3s ease",
+      "display": "flex",
+      "align-items": "center",
+      "justify-content": "center"
+    }).append("<span class=\"fa fa-font\" style=\"margin-right: 8px; font-size: 18px;\"></span>").click(function() {
       currentFont = (currentFont + 1) % fonts.length;
       styleTag.html(fonts[currentFont]["css"]);
       let nextFontName = fonts[(currentFont + 1) % fonts.length]["name"];
-      $(this).html(currentFont === 0 ? "إعادة الخط الافتراضي" : "تغيير الخط إلى: " + nextFontName).append("<span class=\"fa fa-refresh\" style=\"font-family:FontAwesome, sans-serif;\"></span> ");
+      $(this).html(currentFont === 0 ? "إعادة الخط الافتراضي" : "تغيير الخط إلى: " + nextFontName).append("<span class=\"fa fa-font\" style=\"margin-right: 8px; font-size: 18px;\"></span>");
     });
+    
+    // إضافة تأثير hover للزر
+    fontSwitcher.hover(
+      function() { $(this).css("background-color", "#e0e0e0"); },
+      function() { $(this).css("background-color", "#f0f0f0"); }
+    );
     
     $(".primaryborder").append(fontSwitcher);
     
-    // إضافة ستايل للأزرار
-    $('<style>#mD .ba.u-bb.mE { display: block !important; margin: 1px; margin-bottom: 2px ; box-shadow: 0 0 2px rgb(0, 0, 0), inset 0 0 5px rgb(0, 0, 0), 0 0 0 2px #be; border-top: 2px; border-bottom: 2px; }\
+    // إضافة ستايل للأزرار - تم تحسين المظهر
+    $('<style>\
+    /* تنسيق عام للأزرار */\
+    button, .btn {\
+      transition: all 0.3s ease;\
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);\
+      border: none !important;\
+      outline: none !important;\
+    }\
     \
-    #7P .ba.u-bb { display: block !important; margin: 1px; margin-bottom: 2px ; box-shadow: 0 0 2px rgb(0, 0, 0), inset 0 0 5px rgb(0, 0, 0), 0 0 0 2px #be; border-left: -2px; }\
+    button:hover, .btn:hover {\
+      transform: translateY(-2px);\
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);\
+    }\
     \
-    #7P .mG.mH { \
-        width: 99% !important;\
-        height: 99% !important;\
-        border-radius: 0%!important;\
-        text-align: 0;\
+    button:active, .btn:active {\
+      transform: translateY(1px);\
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);\
+    }\
     \
-        z-index: 100;\
-        font-family: jazeera;\
-        text-align: center;\
-        border-left: 1px;\
-        border-top: 1px;\
-        border: 1px solid #8f;\
-        box-shadow: inset 0 0 0 rgb(0 0 0 / 20%), 0 0 2px #f0c01f;box-shadow: 0 0 3px rgb(0, 0, 0), inset 0 0 5px rgb(0, 0, 0), 0 0 0 2px #8f;\
-          \
-        }\
+    /* تنسيق خاص بالعناصر */\
+    #mD .ba.u-bb.mE {\
+      display: block !important;\
+      margin: 5px !important;\
+      margin-bottom: 8px !important;\
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.1), 0 0 0 2px #be !important;\
+      border-radius: 10px !important;\
+      padding: 10px !important;\
+    }\
     \
-    #7P .d-7Z.fl{background-color:#707070!important;background-image:url(https://madahost.online/sico/1740773503732.jpg);\
-        background-size: cover;}\
+    #7P .ba.u-bb {\
+      display: block !important;\
+      margin: 5px !important;\
+      margin-bottom: 8px !important;\
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.1), 0 0 0 2px #be !important;\
+      border-radius: 10px !important;\
+      padding: 10px !important;\
+    }\
     \
+    #7P .mG.mH {\
+      width: 99% !important;\
+      height: 99% !important;\
+      border-radius: 10px !important;\
+      text-align: center !important;\
+      z-index: 100 !important;\
+      font-family: jazeera !important;\
+      border: 1px solid #8f !important;\
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), 0 0 5px rgba(240, 192, 31, 0.5), 0 0 0 2px #8f !important;\
+      padding: 10px !important;\
+      margin: 5px !important;\
+    }\
     \
-    #7P .bg.u-msg.7G{color:#8f!important;}\
+    #7P .d-7Z.fl {\
+      background-color: #707070 !important;\
+      background-image: url(https://madahost.online/sico/1740773503732.jpg) !important;\
+      background-size: cover !important;\
+      border-radius: 10px !important;\
+      padding: 10px !important;\
+      margin: 5px !important;\
+    }\
     \
+    #7P .bg.u-msg.7G {\
+      color: #8f !important;\
+      font-size: 16px !important;\
+      padding: 8px !important;\
+      margin: 5px !important;\
+      border-radius: 8px !important;\
+    }\
     \
-    \
-    #7P{background-color:#707070!important;background-image:url(https);\
-        background-size: cover;}\
-    \
+    #7P {\
+      background-color: #707070 !important;\
+      background-image: url(https) !important;\
+      background-size: cover !important;\
+      padding: 10px !important;\
+    }\
     </style>').appendTo('head');
     
-    // إضافة ستايل للصفحة
-    $('<style>#mP {margin-bottom: 2px 2px 2px jazeera!important;\
-        border-left: 10px!important;display: block;content-type: text;margin-bottom:2px solid;border-top:2px solid;margin-top:2px solid;border-color: #b6!important;border-top: 1px!important;margin-left-style: solid;font-family: \'Ruqaa\', sans-serif;\
+    // إضافة ستايل للصفحة - تم تحسين المظهر
+    $('<style>\
+    #mP {\
+      margin: 10px !important;\
+      border-left: 10px solid #b6 !important;\
+      display: block !important;\
+      content-type: text !important;\
+      border-top: 2px solid #b6 !important;\
+      border-bottom: 2px solid #b6 !important;\
+      border-right: 2px solid #b6 !important;\
+      border-radius: 10px !important;\
+      font-family: \'Ruqaa\', sans-serif !important;\
+      padding: 10px !important;\
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;\
     }\
+    \
     #b8 {\
-        text-align: center !important;\
-        border-radius: 2px 10px 10px 2px !important;\
-        border-style: jazeera !important;\
-        height: 24px;\
-        font-family: \'Ruqaa\', sans-serif;\
-        border-top: -2px; \
+      text-align: center !important;\
+      border-radius: 10px !important;\
+      height: 30px !important;\
+      font-family: \'Ruqaa\', sans-serif !important;\
+      padding: 5px !important;\
+      margin: 5px !important;\
+      font-size: 16px !important;\
+    }\
+    \
+    /* تنسيق عام للصفحة */\
+    body {\
+      padding: 10px !important;\
+    }\
+    \
+    /* تنسيق مربعات الإدخال */\
+    input, textarea, select {\
+      font-size: 16px !important;\
+      padding: 10px !important;\
+      margin: 5px !important;\
+      border-radius: 8px !important;\
+      border: 1px solid #ccc !important;\
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1) !important;\
+    }\
+    \
+    /* تنسيق الروابط */\
+    a {\
+      font-size: 16px !important;\
+      transition: all 0.3s ease !important;\
+    }\
+    \
+    a:hover {\
+      text-decoration: none !important;\
     }\
     </style>').appendTo('head');
     
-    // إضافة مربع ترحيبي
-    $('<div>\
+    // إضافة مربع ترحيبي - تم تحسين المظهر
+    $('<div class="welcome-box">\
         <marquee direction="right" width="100%" id="n5" onmouseover="this.stop()" onmouseout="this.start()"\
-        scrolldelay="0" scrollamount="3" style="font-family: \'Ruqaa\', sans-serif, FontAwesome;border-left: -8px;border-top: 2px;font-size: 100%;color: #333;height: 1px;background: white;">\
+        scrolldelay="0" scrollamount="3" style="font-family: \'Ruqaa\', sans-serif, FontAwesome; font-size: 16px; color: #333; padding: 10px; background: linear-gradient(to right, #f0f0f0, #ffffff, #f0f0f0); border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin: 10px 0;">\
               اكتشف متعة التواصل في بيئة آمنة وموثوقة. موقعنا يوفر لك الخصوصية الكاملة، مما يتيح لك التفاعل بصدق وراحة \
         </marquee>\
     </div>').appendTo('body');
     
-    // إضافة زر لمسح الرسائل
-    $('<img src="https://madahost.online/sico/nc.jpg" alt="مسح الرسائل" style="width:10px;height:10px;">').insertBefore('label.nosel.ninr.fl.uzr.label.label-primary');
+    // إضافة زر لمسح الرسائل - تم تكبير الحجم
+    $('<img src="https://madahost.online/sico/nc.jpg" alt="مسح الرسائل" style="width:20px; height:20px; margin: 5px; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">').insertBefore('label.nosel.ninr.fl.uzr.label.label-primary');
     
-    // إضافة ستايل للأيقونات
-    $('<style>').attr('type', 'text/css').html('\
-        .heart-ripple {\
-            display: block;\
-            font-size: 16px;\
-            margin: 2px;\
-            background: sparkle ease-in-out infinite;\
-            border-radius: 50%;\
-            opacity: 0.8;\
-            transform: scale(1);\
-            z-index: 999;\
-        }\
-        @keyframes sparkle {\
-            0% {transform:scale(1)translate(0);\
-            opacity:1;\
-            }\
-            50% {transform:scale(1.6)translate(-30px);\
-            opacity:0.8;\
-            }\
-            100% {transform:scale(1)translate(-60px);\
-            opacity:0;\
-            }\
-        }\
-    ').appendTo('head');
+    // إضافة ستايل للأيقونات - تم تحسين التأثير
+    $('<style>\
+    .heart-ripple {\
+      display: block;\
+      font-size: 20px;\
+      margin: 2px;\
+      background: transparent;\
+      border-radius: 50%;\
+      opacity: 0.8;\
+      transform: scale(1);\
+      z-index: 999;\
+      color: #ff6b6b;\
+      text-shadow: 0 0 5px rgba(255,107,107,0.5);\
+    }\
+    \
+    @keyframes sparkle {\
+      0% {\
+        transform: scale(1) translate(0);\
+        opacity: 1;\
+      }\
+      50% {\
+        transform: scale(1.6) translate(-30px);\
+        opacity: 0.8;\
+      }\
+      100% {\
+        transform: scale(1) translate(-60px);\
+        opacity: 0;\
+      }\
+    }\
+    \
+    /* تنسيق الأيقونات */\
+    .fa {\
+      font-size: 18px !important;\
+      margin: 0 5px !important;\
+    }\
+    </style>').appendTo('head');
     
-    // إضافة ستايل للأزرار
+    // إضافة ستايل للأزرار - تم تحسين المظهر
     $('<style>\
     .fa.fa-user.label.label-primary.fa-user-plus, .fa.fa-user.label.label-primary {\
-        background-color: transparent !important;\
-        color: transparent !important;\
-        font-size: 0px !important;\
-        background-image: linear-gradient(90deg, #007bff, #00FFFF, #FFD700, #007bff);\
-        background-size: 400% 400%;\
-        -webkit-background-clip: text;\
-        animation: sparkle 3s ease-in-out infinite;\
-        border: 0px !important;\
-        font-family: jazeera !important;\
-    }</style>').appendTo('head');
+      background-color: transparent !important;\
+      color: transparent !important;\
+      font-size: 16px !important;\
+      background-image: linear-gradient(90deg, #007bff, #00FFFF, #FFD700, #007bff);\
+      background-size: 300% 100%;\
+      -webkit-background-clip: text;\
+      animation: sparkle 4s ease-in-out infinite;\
+      border: 0px !important;\
+      font-family: jazeera !important;\
+      padding: 10px !important;\
+      margin: 5px !important;\
+      display: inline-block !important;\
+      border-radius: 8px !important;\
+    }\
+    \
+    /* تنسيق عام للأزرار */\
+    .btn, button {\
+      font-size: 16px !important;\
+      padding: 10px 15px !important;\
+      margin: 5px !important;\
+      border-radius: 10px !important;\
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;\
+      transition: all 0.3s ease !important;\
+    }\
+    \
+    .btn:hover, button:hover {\
+      transform: translateY(-2px) !important;\
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;\
+    }\
+    \
+    .btn:active, button:active {\
+      transform: translateY(1px) !important;\
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;\
+    }\
+    </style>').appendTo('head');
     
-    // إضافة زر لمسح الرسائل
+    // إضافة زر لمسح الرسائل - تم تحسين المظهر والوظيفة
     $(".fa-trash-o").css({
-      "padding-left": "0",
-      "margin-left": "0"
-    }).click(function(e) {
+      "padding": "8px",
+      "margin": "5px",
+      "font-size": "18px",
+      "cursor": "pointer",
+      "color": "#d9534f",
+      "background-color": "#f8f8f8",
+      "border-radius": "50%",
+      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
+      "transition": "all 0.3s ease"
+    }).hover(
+      function() { $(this).css({"background-color": "#f0f0f0", "transform": "scale(1.1)"}); },
+      function() { $(this).css({"background-color": "#f8f8f8", "transform": "scale(1)"}); }
+    ).click(function(e) {
       e.preventDefault();
       if(confirm('عنجد بتمسح ولا بتمزح')) {
         try {
@@ -305,14 +543,37 @@
       }
     });
     
-    // تعديل حجم الأزرار
+    // تعديل حجم الأزرار - تم تكبير الحجم
     $(".fa-paint-brush").css({
-      "padding-right": "0",
-      "margin-right": "0"
-    });
+      "padding": "8px",
+      "margin": "5px",
+      "font-size": "18px",
+      "cursor": "pointer",
+      "color": "#5bc0de",
+      "background-color": "#f8f8f8",
+      "border-radius": "50%",
+      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
+      "transition": "all 0.3s ease"
+    }).hover(
+      function() { $(this).css({"background-color": "#f0f0f0", "transform": "scale(1.1)"}); },
+      function() { $(this).css({"background-color": "#f8f8f8", "transform": "scale(1)"}); }
+    );
     
-    // إضافة زر للتحكم بالصوت
-    $(".fa-volume-up").append('<img role="sendImageButton" src="https://madahost.online/sico/1740206278289.jpg" style="width:10px;height:10px;opacity:0.9;">');
+    // إضافة زر للتحكم بالصوت - تم تحسين المظهر
+    $(".fa-volume-up").css({
+      "padding": "8px",
+      "margin": "5px",
+      "font-size": "18px",
+      "cursor": "pointer",
+      "color": "#5cb85c",
+      "background-color": "#f8f8f8",
+      "border-radius": "50%",
+      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
+      "transition": "all 0.3s ease"
+    }).hover(
+      function() { $(this).css({"background-color": "#f0f0f0", "transform": "scale(1.1)"}); },
+      function() { $(this).css({"background-color": "#f8f8f8", "transform": "scale(1)"}); }
+    ).append('<img role="sendImageButton" src="https://madahost.online/sico/1740206278289.jpg" style="width:16px; height:16px; opacity:0.9; margin-left: 5px;">');
     
     $(".fa-volume-up").on('click', function() {
       if (window.Muteall && typeof window.Muteall === 'function') {
@@ -322,18 +583,69 @@
       }
     });
     
-    // تقصير الرسائل الطويلة
+    // تقصير الرسائل الطويلة - تم تحسين الوظيفة
     let maxLength = 200;
     $('.u-msg').on('input', function() {
-      if ($(this).val().length > maxLength) {
+      let currentLength = $(this).val().length;
+      if (currentLength > maxLength) {
         $(this).val($(this).val().substring(0, maxLength));
+        // إضافة إشعار للمستخدم
+        if (!$('.char-limit-notice').length) {
+          $('<div class="char-limit-notice" style="color: #d9534f; font-size: 14px; margin: 5px 0;">تم تجاوز الحد الأقصى للحروف (200 حرف)</div>').insertAfter($(this));
+          setTimeout(function() {
+            $('.char-limit-notice').fadeOut(500, function() {
+              $(this).remove();
+            });
+          }, 3000);
+        }
       }
+    });
+    
+    // إضافة عداد للحروف
+    $('.u-msg').each(function() {
+      let $this = $(this);
+      let $counter = $('<div class="char-counter" style="font-size: 12px; color: #777; text-align: right; margin-right: 10px;">0/' + maxLength + '</div>');
+      $counter.insertAfter($this);
+      
+      $this.on('input', function() {
+        let currentLength = $(this).val().length;
+        $counter.text(currentLength + '/' + maxLength);
+        
+        if (currentLength > maxLength * 0.8) {
+          $counter.css('color', '#d9534f');
+        } else {
+          $counter.css('color', '#777');
+        }
+      });
     });
     
     // تحميل ملفات JavaScript إضافية
     $.getScript('https://cdn.jsdelivr.net/gh/dimashki98/Java@refs/heads/main/MadahoststyleX2.js');
     $.getScript('https://raw.githack.com/dimashki98/Java@refs/heads/main/MadahoststyleX2.js');
     
-    console.log("تم تحميل سكربت شات مدى بنجاح!");
+    // إضافة زر لتحديث الصفحة
+    let refreshButton = $("<button>تحديث الصفحة</button>").addClass("btn border refresh-btn").css({
+      "background-color": "#5cb85c",
+      "color": "white",
+      "padding": "10px 15px",
+      "margin": "8px",
+      "width": "45%",
+      "font-size": "16px",
+      "border-radius": "10px",
+      "box-shadow": "0 2px 5px rgba(0,0,0,0.1)",
+      "transition": "all 0.3s ease"
+    }).append('<span class="fa fa-refresh" style="margin-right: 5px; font-size: 18px;"></span>').click(function() {
+      location.reload();
+    });
+    
+    // إضافة تأثير hover للزر
+    refreshButton.hover(
+      function() { $(this).css({"background-color": "#4cae4c", "transform": "scale(1.05)"}); },
+      function() { $(this).css({"background-color": "#5cb85c", "transform": "scale(1)"}); }
+    );
+    
+    $(".primaryborder").append(refreshButton);
+    
+    console.log("تم تحميل سكربت شات مدى المطور بنجاح!");
   });
 })();
