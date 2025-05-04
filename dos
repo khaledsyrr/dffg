@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("<button>Ù†Ø³Ø®Ø© Ø®ÙÙŠÙØ©</button>").css({
+    $("<button>نسخه خفيفه</button>").css({
         position: "fixed",
         top: "240px",
         right: "20px",
