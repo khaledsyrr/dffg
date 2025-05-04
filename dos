@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $("<button>نسخه خفيفه</button>").css({
+    // wolveshost
+    $("<button>نسخة خفيفة</button>").css({
         position: "fixed",
         top: "240px",
         right: "20px",
@@ -15,20 +16,30 @@ $(document).ready(function () {
         window.location.href = "https://ss6zz.com/";
     }).appendTo("body");
 
-    // Ø°Ø¦Ø§Ø¨ Ù‡ÙˆØ³Øª
-    $("button:contains('Ø¯Ø®ÙˆÙ„')").on("click", function () {
-        $("button:contains('Ù†Ø³Ø®Ø© Ø®ÙÙŠÙØ©')").hide();
+    // wolveshost
+    $("button:contains('دخول')").on("click", function () {
+        $("button:contains('نسخة خفيفة')").hide();
     });
 });
 
+
+
+
+               
+
+
+
+
+              
+
 $(document).ready(function() {
-    // DIMASHKHOST - ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ù†Øµ Ø£Ø«Ù†Ø§Ø¡ Ø§Ù„ÙƒØªØ§Ø¨Ø©
+    // DIMASHKHOST - تعديل النص أثناء الكتابة
     $(document).on('input', '.tbox', function() {
         let text = $(this).val();
         $(this).val(text.replace(/vt\.tiktok\.com/g, 'vm.tiktok.com'));
     });
 
-    // Ø°Ø¦Ø§Ø¨ Ù‡ÙˆØ³Øª - ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ù†Øµ Ø¹Ù†Ø¯ Ø§Ù„Ø¥Ø±Ø³Ø§Ù„
+    // ذئاب هوست - تعديل النص عند الإرسال
     $(document).on('click', '.fa-send', function() {
         $('.tbox').each(function() {
             let text = $(this).val();
@@ -38,21 +49,18 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    $('button.btn.fr.btn-warning.fa.fa-paint-brush').text('Ù„ÙˆÙ†');
+    $('button.btn.fr.btn-warning.fa.fa-paint-brush').text('لون');
 });
 
 $(document).ready(function() {
     $(".btn.fr.btn-warning.fa.fa-paint-brush").hide();
 });
 
-$(document).ready(function() {
-    
-    $('head').append('<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&display=swap" rel="stylesheet">');
-    
-    
-    $('body, div[style*="display: inline-block;direction: rtl;"], button, #u1, #u2, #u3, #pass1, #pass2').css('font-family', 'Aref Ruqaa, sans-serif');
-    $('i, .fa, [class*="fa-"]').css('font-family', 'FontAwesome, sans-serif');
-});
+
+
+
+
+
 
 
 
@@ -186,12 +194,12 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    let isDesktopMode = false; // Ø­Ø§Ù„Ø© Ø§Ù„Ø¹Ø±Ø¶ (ÙˆØ¶Ø¹ Ø§Ù„ÙƒÙ…Ø¨ÙŠÙˆØªØ± Ø£Ùˆ Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠ)
+    let isDesktopMode = false; // حالة العرض (وضع الكمبيوتر أو الطبيعي)
 
-    // Ø¥Ø¶Ø§ÙØ© Ø²Ø± Ø¬Ø¯ÙŠØ¯ Ø£Ø³ÙÙ„ ØªØ¹Ø·ÙŠÙ„ Ø²ÙŠØ§Ø±Ø© Ø§Ù„Ø¨Ø±ÙˆÙØ§ÙŠÙ„
+    // إضافة زر جديد أسفل تعطيل زيارة البروفايل
     const newButton = $('<label></label>')
-        .text('Ø¹Ø±Ø¶ Ø³Ø·Ø­ Ø§Ù„Ù…ÙƒØªØ¨')
-        .addClass('label tc border btn label-info fl') // Ù†ÙØ³ Ø§Ù„ØªÙ†Ø³ÙŠÙ‚
+        .text('عرض سطح المكتب')
+        .addClass('label tc border btn label-info fl') // نفس التنسيق
         .css({
             'background-color': 'ghostwhite',
             'color': 'black',
@@ -199,26 +207,26 @@ $(document).ready(function() {
             'padding': '6px',
             'width': '98%'
         })
-        .prepend('<span class="fl fa fa-desktop" style="font-family: FontAwesome, sans-serif;"></span> ') // Ø§Ù„Ø£ÙŠÙ‚ÙˆÙ†Ø©
+        .prepend('<span class="fl fa fa-desktop" style="font-family: FontAwesome, sans-serif;"></span> ') // الأيقونة
         .click(function() {
             if (isDesktopMode) {
-                // Ø§Ù„Ø¹ÙˆØ¯Ø© Ø¥Ù„Ù‰ Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠ
+                // العودة إلى الوضع الطبيعي
                 $('meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1.0');
-                $(this).text('Ø¹Ø±Ø¶ Ø³Ø·Ø­ Ø§Ù„Ù…ÙƒØªØ¨')
+                $(this).text('عرض سطح المكتب')
                     .prepend('<span class="fl fa fa-desktop" style="font-family: FontAwesome, sans-serif;"></span> ');
                 isDesktopMode = false;
-                alert('ØªÙ… Ø§Ù„Ø¹ÙˆØ¯Ø© Ø¥Ù„Ù‰ Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠ');
+                alert('تم العودة إلى الوضع الطبيعي');
             } else {
-                // Ø§Ù„ØªØ¨Ø¯ÙŠÙ„ Ø¥Ù„Ù‰ ÙˆØ¶Ø¹ Ø§Ù„ÙƒÙ…Ø¨ÙŠÙˆØªØ±
+                // التبديل إلى وضع الكمبيوتر
                 $('meta[name="viewport"]').attr('content', 'width=1024');
-                $(this).text('Ø¹Ø±Ø¶ Ø§Ù„Ù‡Ø§ØªÙ')
+                $(this).text('عرض الهاتف')
                     .prepend('<span class="fl fa fa-mobile" style="font-family: FontAwesome, sans-serif;"></span> ');
                 isDesktopMode = true;
-                alert('ØªÙ… ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¹Ø±Ø¶ Ø¥Ù„Ù‰ ÙˆØ¶Ø¹ Ø§Ù„ÙƒÙ…Ø¨ÙŠÙˆØªØ±');
+                alert('تم تحويل العرض إلى وضع الكمبيوتر');
             }
         });
 
-    // Ø¥Ø¶Ø§ÙØ© Ø§Ù„Ø²Ø± Ø¥Ù„Ù‰ Ø§Ù„Ø¹Ù†ØµØ± Ø§Ù„Ù…ÙˆØ¬ÙˆØ¯
+    // إضافة الزر إلى العنصر الموجود
     $('#newoption .not_geri').append(newButton);
 });
 
@@ -247,13 +255,16 @@ $("<style>\
 
 
 
+
+
+
 eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$.0(\'1://2.3.4/5/6/7/8/9/a.b\');',12,12,'getScript|https|raw|githack|com|dimashki98|Java|refs|heads|main|Youtube00|js'.split('|'),0,{}))
 
 eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$.0("1://2.3.4/5/6/7@8/9/a/b.c");',13,13,'getScript|https|cdn|jsdelivr|net|gh|dimashki98|Java|refs|heads|main|Bitti|js'.split('|'),0,{}))
 
 
 $(function() {
-    var maxChars = 200; // Ø§Ù„Ø­Ø¯ Ø§Ù„Ø£Ù‚ØµÙ‰ Ù„Ø¹Ø¯Ø¯ Ø§Ù„Ø£Ø­Ø±Ù
+    var maxChars = 200; // الحد الأقصى لعدد الأحرف
     
     $("textarea.u-statc, textarea.u-topic, input.stopic, textarea.fl").on("input", function() {
         if ($(this).val().length > maxChars) {
@@ -291,4 +302,4 @@ eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^
 
 
 eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$.0("1://2.3.4/5/6/7@8/9/a/b.c");',13,13,'getScript|https|cdn|jsdelivr|net|gh|dimashki98|Java|refs|heads|main|Intrmdx2|js'.split('|'),0,{}))
-
+        
